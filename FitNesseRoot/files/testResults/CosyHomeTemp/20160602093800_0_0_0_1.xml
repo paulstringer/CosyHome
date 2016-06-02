@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<suiteResults>
+  <FitNesseVersion>v20160331</FitNesseVersion>
+  <rootPath>CosyHomeTemp</rootPath>
+  <pageHistoryReference>
+    <name>CosyHomeTemp.CosyTemperatures</name>
+    <date>2016-06-02T09:38:00+01:00</date>
+    <pageHistoryLink>CosyHomeTemp.CosyTemperatures?pageHistory&amp;resultDate=20160602093800</pageHistoryLink>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>38</exceptions>
+    </counts>
+    <runTimeInMillis>45</runTimeInMillis>
+  </pageHistoryReference>
+  <executionLog>
+    <testSystem>slim:./OCSlimProjectTestRunner.sh</testSystem>
+    <command>./OCSlimProjectTestRunner.sh 8085</command>
+    <exitCode>0</exitCode>
+    <stdOut>Running Test Target "AcceptanceTests.app" ("/Users/paulstringer/Library/Developer/Xcode/DerivedData/Build/Products/Debug/AcceptanceTests.app/Contents/MacOS/AcceptanceTests") with Slim Port "8085"
+</stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>298</totalRunTimeInMillis>
+</suiteResults>
+

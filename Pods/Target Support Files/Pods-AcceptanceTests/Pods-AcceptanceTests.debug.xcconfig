@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OCSlimProject" "${PODS_ROOT}/Headers/Public/cslim"
+OCSLIMPROJECT_BUNDLE_RESOURCES_DIR = ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/OCSlimProject-Mac.bundle/Contents/Resources
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/OCSlimProject" -isystem "${PODS_ROOT}/Headers/Public/cslim"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"cslim"
+PODS_ROOT = ${SRCROOT}/Pods
