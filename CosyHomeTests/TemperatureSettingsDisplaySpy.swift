@@ -9,7 +9,7 @@
 import Foundation
 @testable import CosyHome
 
-class TemperatureRangeDisplaySpy:  TemperatureRangeDisplay{
+class TemperatureSettingsDisplaySpy:  TemperatureSettingsDisplay{
     
     var settings: [TemperatureSettingItem]?
     

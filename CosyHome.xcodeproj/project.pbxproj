@@ -13,7 +13,6 @@
 		8C175FA31CF5DE4100CD18C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA11CF5DE4100CD18C4 /* Main.storyboard */; };
 		8C175FA51CF5DE4100CD18C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA41CF5DE4100CD18C4 /* Assets.xcassets */; };
 		8C175FA81CF5DE4100CD18C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA61CF5DE4100CD18C4 /* LaunchScreen.storyboard */; };
-		8C175FB31CF5DE4100CD18C4 /* CosyHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FB21CF5DE4100CD18C4 /* CosyHomeTests.swift */; };
 		8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FD81CF5E30F00CD18C4 /* AcceptanceTests.m */; };
 		8C175FDC1CF5E30F00CD18C4 /* FixtureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */; };
 		8C175FE01CF5E30F00CD18C4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FDF1CF5E30F00CD18C4 /* Empty.xib */; };
@@ -23,8 +22,8 @@
 		8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */; };
 		8C175FED1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */; };
 		8C175FEE1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */; };
-		8C175FF01CF5F4F200CD18C4 /* TemperatureDisplayPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEF1CF5F4F200CD18C4 /* TemperatureDisplayPresenterTests.swift */; };
-		8C175FF21CF5F8E700CD18C4 /* TemperatureRangeDisplaySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF11CF5F8E700CD18C4 /* TemperatureRangeDisplaySpy.swift */; };
+		8C175FF01CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */; };
+		8C175FF21CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */; };
 		8C175FF41CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */; };
 		8C175FF51CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +49,6 @@
 		8C175FA71CF5DE4100CD18C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C175FA91CF5DE4100CD18C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C175FAE1CF5DE4100CD18C4 /* CosyHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosyHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C175FB21CF5DE4100CD18C4 /* CosyHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosyHomeTests.swift; sourceTree = "<group>"; };
 		8C175FB41CF5DE4100CD18C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C175FD51CF5E30F00CD18C4 /* AcceptanceTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcceptanceTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C175FD81CF5E30F00CD18C4 /* AcceptanceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcceptanceTests.m; sourceTree = "<group>"; };
@@ -63,8 +61,8 @@
 		8C175FE71CF5EAEB00CD18C4 /* TemperatureRanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureRanges.swift; sourceTree = "<group>"; };
 		8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsDisplay.swift; sourceTree = "<group>"; };
 		8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsPresenter.swift; sourceTree = "<group>"; };
-		8C175FEF1CF5F4F200CD18C4 /* TemperatureDisplayPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureDisplayPresenterTests.swift; sourceTree = "<group>"; };
-		8C175FF11CF5F8E700CD18C4 /* TemperatureRangeDisplaySpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureRangeDisplaySpy.swift; sourceTree = "<group>"; };
+		8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingsPresenterTests.swift; path = CosyHomeTests/TemperatureSettingsPresenterTests.swift; sourceTree = SOURCE_ROOT; };
+		8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingsDisplaySpy.swift; path = CosyHomeTests/TemperatureSettingsDisplaySpy.swift; sourceTree = SOURCE_ROOT; };
 		8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsInteractorOutput.swift; sourceTree = "<group>"; };
 		96BB3160EF7232E9F7A9D4CE /* Pods-AcceptanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceTests/Pods-AcceptanceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,10 +136,7 @@
 		8C175FB11CF5DE4100CD18C4 /* CosyHomeTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C175FB21CF5DE4100CD18C4 /* CosyHomeTests.swift */,
 				8C175FB41CF5DE4100CD18C4 /* Info.plist */,
-				8C175FEF1CF5F4F200CD18C4 /* TemperatureDisplayPresenterTests.swift */,
-				8C175FF11CF5F8E700CD18C4 /* TemperatureRangeDisplaySpy.swift */,
 			);
 			path = CosyHomeTests;
 			sourceTree = "<group>";
@@ -181,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				8C175FF81CF5FC0000CD18C4 /* V.iew */,
-				8C175FFA1CF5FC1400CD18C4 /* Interactor */,
+				8C175FFA1CF5FC1400CD18C4 /* I.nteractor */,
 				8C175FF91CF5FC0700CD18C4 /* P.resenter */,
 			);
 			name = "Temperature Settings";
@@ -204,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */,
+				8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */,
 			);
 			name = V.iew;
 			sourceTree = "<group>";
@@ -212,16 +208,17 @@
 			isa = PBXGroup;
 			children = (
 				8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */,
+				8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */,
 			);
 			name = P.resenter;
 			sourceTree = "<group>";
 		};
-		8C175FFA1CF5FC1400CD18C4 /* Interactor */ = {
+		8C175FFA1CF5FC1400CD18C4 /* I.nteractor */ = {
 			isa = PBXGroup;
 			children = (
 				8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */,
 			);
-			name = Interactor;
+			name = I.nteractor;
 			sourceTree = "<group>";
 		};
 		E2008B8CF5EE238D3B24EC18 /* Frameworks */ = {
@@ -439,9 +436,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C175FF01CF5F4F200CD18C4 /* TemperatureDisplayPresenterTests.swift in Sources */,
-				8C175FF21CF5F8E700CD18C4 /* TemperatureRangeDisplaySpy.swift in Sources */,
-				8C175FB31CF5DE4100CD18C4 /* CosyHomeTests.swift in Sources */,
+				8C175FF01CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift in Sources */,
+				8C175FF21CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
