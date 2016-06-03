@@ -49,7 +49,7 @@ class TemperatureSettingsInteractorTests: XCTestCase {
     
     func testConvertingEntities() {
         
-        let entity = TemperatureSettingEntity(temperature: 17.5, minimum: 7.0, maximum: 24.0)
+        let entity = TemperatureSettingEntity(temperature: 17.5)
         
         gateway.entities = [entity]
         
@@ -79,5 +79,6 @@ class TemperatureSettingsInteractorTests: XCTestCase {
         
         XCTAssertEqual(temperatures.first?.type, .Cosy)
     }
+
     
 }
