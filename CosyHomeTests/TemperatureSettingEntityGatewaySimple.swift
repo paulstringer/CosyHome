@@ -5,11 +5,11 @@ class TemperatureSettingEntityGatewaySimple : TemperatureSettingEntityGateway {
     var entities = [TemperatureSettingEntity]()
     var enabled = true
     
-    convenience init(entities: [TemperatureSettingEntity]) {
+    convenience init(slumber: Double, comfy: Double, cosy: Double) {
         
         self.init()
         
-        self.entities = entities
+        self.entities = TemperatureSettingEntity.entitiesWithTemperatureForSlumber(slumber, comfy: comfy, cosy: cosy)
         
     }
     
