@@ -8,27 +8,46 @@
 
 import Foundation
 
-
 @objc(TemperatureRange)
 
-class TemperatureRange : NSObject, SlimDecisionTable {
+class TemperatureRange : NSObject, SlimDecisionTable, TemperatureSettingsDisplay {
+    
+    var systemUnderTest : TemperatureSettingsInteractor!
+    
+    // MARK: DT Inputs
     
     var state = ""
     
-    var temp = "17"
+    var temp: String {
+        
+        get {
+        
+            switch state {
+            case "Slumber":
+                return slumber?.temp ?? ""
+            case "Comfy":
+                return comfy?.temp ?? ""
+            case "Cosy":
+                return cosy?.temp ?? ""
+            default:
+                return "\(state) Not Found"
+            }
+        }
+        
+    }
     
     var minimum: String {
         get {
             
             switch state {
             case "Slumber":
-                    return "7"
+                    return slumber?.minimum ?? ""
             case "Comfy":
-                    return "15"
+                    return comfy?.minimum ?? ""
             case "Cosy":
-                    return "19"
+                    return cosy?.minimum ?? ""
             default:
-                return "0"
+                return "\(state) Not Found"
             }
 
         }
@@ -39,22 +58,35 @@ class TemperatureRange : NSObject, SlimDecisionTable {
             
             switch state {
             case "Slumber":
-                return "17"
+                return slumber?.maximum ?? ""
             case "Comfy":
-                return "20"
+                return comfy?.maximum ?? ""
             case "Cosy":
-                return "30"
+                return cosy?.maximum ?? ""
             default:
-                return "0"
+                return "\(state) Not Found"
             }
             
         }
     }
     
     func execute() {
-        // ...
+
+        let gateway = CreateTemperatureStates.gateway
         
+        let output = TemperatureSettingsPresenter(display: self)
+        
+        systemUnderTest = TemperatureSettingsInteractor(gateway: gateway, output: output)
+        
+        systemUnderTest.start()
         
     }
+    
+    //MARK: Display Outputs
+    
+    var slumber: TemperatureSettingItem?
+    var comfy: TemperatureSettingItem?
+    var cosy: TemperatureSettingItem?
+
     
 }

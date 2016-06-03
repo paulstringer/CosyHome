@@ -7,11 +7,17 @@ struct TemperatureSettingItem: Equatable {
 }
 
 func ==(lhs: TemperatureSettingItem, rhs: TemperatureSettingItem ) -> Bool {
+    
     return lhs.temp == rhs.temp
+    
 }
 
 protocol TemperatureSettingsDisplay {
     
-    func setTemperatureSettings(settings:[TemperatureSettingItem])
+    var slumber: TemperatureSettingItem? { get set }
+    var comfy: TemperatureSettingItem? { get set }
+    var cosy: TemperatureSettingItem? { get set }
+    
+//    func setTemperatureSettings(settings:[TemperatureSettingItem])
     
 }

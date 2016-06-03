@@ -3,7 +3,7 @@ import Foundation
 
 class TemperatureSettingsPresenter: TemperatureSettingsInteractorOutput {
     
-    let display: TemperatureSettingsDisplay
+    var display: TemperatureSettingsDisplay
     
     init(display: TemperatureSettingsDisplay) {
         self.display = display
@@ -11,22 +11,50 @@ class TemperatureSettingsPresenter: TemperatureSettingsInteractorOutput {
     
     //MARK: Interactor Output
     
-    func setTemperatures(temperatures: [TemperatureSetting]) {
-        let items = temperatures.map { (setting) -> TemperatureSettingItem in
-            setting.temperature
-            let formatted = temperatureFormattedStringsForSetting(setting)
-            return TemperatureSettingItem(temp: formatted.temp, minimum: formatted.min, maximum: formatted.max)
+    var temperatures: [TemperatureSetting]? {
+        didSet {
+            
+            if let temperatures = temperatures {
+                
+                for setting in temperatures {
+                    
+                    let item = itemForTemperature(setting)
+                    
+                    switch setting.type {
+                    case .Slumber:
+                        display.slumber = item
+                    case .Comfy:
+                        display.comfy = item
+                    case .Cosy:
+                        display.cosy = item
+                    }
+                
+                }
+                
+            }
+
         }
-         display.setTemperatureSettings(items)
+    }
+    
+    var message: TemperatureSettingsInteractorOutputMessage?
+    
+    private func itemForTemperature(setting: TemperatureSetting) -> TemperatureSettingItem {
+        
+        let formatted = temperatureFormattedStringsForSetting(setting)
+        
+        return TemperatureSettingItem(temp: formatted.temp, minimum: formatted.min, maximum: formatted.max)
+        
     }
     
     private func temperatureFormattedStringsForSetting(setting: TemperatureSetting) -> (temp: String, min: String, max:String) {
         
-        let format = "%0.1f"
+        let formatter = NSNumberFormatter()
+        formatter.maximumFractionDigits = 1
         
-        let temp = String(format: format, setting.temperature)
-        let min = String(format: format, setting.minimum)
-        let max = String(format: format, setting.maximum)
+        
+        let temp = formatter.stringFromNumber(NSNumber(double: setting.temperature))!
+        let min = formatter.stringFromNumber(NSNumber(double: setting.minimum))!
+        let max = formatter.stringFromNumber(NSNumber(double: setting.maximum))!
         
         return (temp, min, max)
     }

@@ -10,12 +10,10 @@ import Foundation
 @testable import CosyHome
 
 class TemperatureSettingsDisplaySpy:  TemperatureSettingsDisplay{
-    
-    var settings: [TemperatureSettingItem]?
-    
-    func setTemperatureSettings(settings: [TemperatureSettingItem]) {
-        self.settings = settings
-    }
+
+    var slumber: TemperatureSettingItem?
+    var comfy: TemperatureSettingItem?
+    var cosy: TemperatureSettingItem?
     
     
 }
