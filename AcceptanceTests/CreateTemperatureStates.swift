@@ -1,8 +1,8 @@
 import Foundation
 
-@objc(CreateTemperatureStates)
+@objc(CreateTemperatures)
 
-class CreateTemperatureStates : NSObject, SlimDecisionTable {
+class CreateTemperatures : NSObject, SlimDecisionTable {
     
     var state = ""
     var temp = "0"
@@ -11,13 +11,13 @@ class CreateTemperatureStates : NSObject, SlimDecisionTable {
     
     func beginTable() {
         
-        CreateTemperatureStates.temps.removeAll()
+        CreateTemperatures.temps.removeAll()
         
     }
     
     func execute() {
 
-        CreateTemperatureStates.temps[state] = Double(temp)!
+        CreateTemperatures.temps[state] = Double(temp)!
         
     }
     

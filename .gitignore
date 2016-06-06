@@ -65,3 +65,4 @@ iOSInjectionProject/
 
 ### Objective-C Patch ###
 *.xcscmblueprint
+FitNesseRoot/files/testResults/

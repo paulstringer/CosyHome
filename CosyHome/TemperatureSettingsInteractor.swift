@@ -78,6 +78,21 @@ struct TemperatureSettingsInteractor {
         
     }
     
+    func updateSlumber(temperature: Double) {
+
+        
+    }
+    
+    func updateCosy(temperature: Double) {
+        
+        
+    }
+    
+    func updateComfy(temperature: Double) {
+        
+        
+    }
+    
     private static func transform(entities : [TemperatureSettingEntity]) -> [TemperatureSetting] {
         
         return entities.map({ (entity) -> TemperatureSetting in

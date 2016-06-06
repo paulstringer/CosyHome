@@ -1,17 +1,37 @@
+
 !3 Cosy Home has three TEMPERATURE settings SLUMBER, COMFY, COSY. In that order each setting must be greater than the last, but not greater than 30 degrees.
 
 !define SLUMBER {Slumber}
 !define COMFY {Comfy}
 !define COSY {Cosy}
 
-|Create Temperature States|
-|State          |Temp     |
-|${SLUMBER}     |14       |
-|${COMFY}       |18       |
-|${COSY}        |21       |
+|Create Temperatures|
+|State       |Temp  |
+|${SLUMBER}  |14    |
+|${COMFY}    |18    |
+|${COSY}     |21    |
 
-|Temperature Range                 |
+|Check Temperatures                |
 |State     |temp?|minimum?|maximum?|
 |${SLUMBER}|14   |7       |17      |
 |${COMFY}  |18   |15      |20      |
 |${COSY}   |21   |19      |30      |
+
+
+|Create Temperatures|
+|State      |temp   |
+|Slumber    |14     |
+|Comfy      |18     |
+|Cosy       |21     |
+
+|Adjust Temperatures|
+|State     |temp    |
+|Cosy      |24      |
+|Comfy     |21      |
+
+
+|Check Temperatures             |
+|State  |temp?|minimum?|maximum?|
+|Slumber|14   |7       |20      |
+|Comfy  |21   |15      |23      |
+|Cosy   |24   |22      |30      |
