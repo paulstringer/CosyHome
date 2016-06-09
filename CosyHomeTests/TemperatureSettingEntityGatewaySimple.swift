@@ -2,25 +2,28 @@ import Foundation
 
 class TemperatureSettingEntityGatewaySimple : TemperatureSettingEntityGateway {
     
-    var entities = [TemperatureSettingEntity]()
+    var group: TemperatureSettingGroup
     var enabled = true
     
-    convenience init(slumber: Double, comfy: Double, cosy: Double) {
+    convenience init() {
         
-        self.init()
-        
-        self.entities = TemperatureSettingEntity.entitiesWithTemperatureForSlumber(slumber, comfy: comfy, cosy: cosy)
+        self.init(slumber: 14, comfy:18, cosy:21)
         
     }
     
-    func fetchAll() -> TemperatureSettingEntityGatewayResponse {
+    init(slumber: Double, comfy: Double, cosy: Double) {
+        
+        self.group = TemperatureSettingGroup.groupWithTemperaturesSlumber(slumber, comfy: comfy, cosy: cosy)
+        
+    }
+    
+    func fetchGroup() -> TemperatureSettingEntityGatewayResponse {
         
         if !enabled {
             return .error
         } else {
-            return .success(entities: entities)
+            return .success(group: group)
         }
-        
     }
 
     

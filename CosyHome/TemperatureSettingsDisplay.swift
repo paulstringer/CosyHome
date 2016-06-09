@@ -18,6 +18,4 @@ protocol TemperatureSettingsDisplay {
     var comfy: TemperatureSettingItem? { get set }
     var cosy: TemperatureSettingItem? { get set }
     
-//    func setTemperatureSettings(settings:[TemperatureSettingItem])
-    
 }

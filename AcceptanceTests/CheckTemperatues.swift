@@ -22,6 +22,14 @@ class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispla
             
             return TemperatureSettingsInteractor(gateway: gateway, output: output)
         
+//        guard let interactor = TemperatureContext.interactor else {
+//            
+//            fatalError()
+//            
+//        }
+//        
+//        return interactor
+        
     }()
     
     // MARK: System Under Test Outputs
@@ -124,11 +132,11 @@ class AdjustTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispl
         
         switch state {
         case "Slumber":
-            return systemUnderTest.updateSlumber( temperature )
+            return systemUnderTest.adjustSlumber( temperature )
         case "Comfy":
-            return systemUnderTest.updateComfy( temperature )
+            return systemUnderTest.adjustComfy( temperature )
         case "Cosy":
-            return systemUnderTest.updateCosy( temperature )
+            return systemUnderTest.adjustCosy( temperature )
         default:
             return
         }
