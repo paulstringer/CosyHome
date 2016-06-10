@@ -17,7 +17,7 @@
 		8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FD81CF5E30F00CD18C4 /* AcceptanceTests.m */; };
 		8C175FDC1CF5E30F00CD18C4 /* FixtureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */; };
 		8C175FE01CF5E30F00CD18C4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FDF1CF5E30F00CD18C4 /* Empty.xib */; };
-		8C175FE61CF5E81F00CD18C4 /* CreateTemperatureStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE51CF5E81F00CD18C4 /* CreateTemperatureStates.swift */; };
+		8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */; };
 		8C175FE81CF5EAEB00CD18C4 /* CheckTemperatues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */; };
 		8C175FEA1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */; };
 		8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */; };
@@ -38,6 +38,7 @@
 		8CD99EE61D017F5F0019750B /* TemperatureSettingEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EE51D017F5F0019750B /* TemperatureSettingEntityTests.swift */; };
 		8CED7F541D09BFD200609BAB /* TemperatureSettingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0633C21D0812DE00DF061F /* TemperatureSettingGroup.swift */; };
 		8CED7F561D09DF3E00609BAB /* TemperatureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */; };
+		8CED7F581D0AA20600609BAB /* AdjustTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,7 @@
 		8C175FDE1CF5E30F00CD18C4 /* AcceptanceTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AcceptanceTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8C175FDF1CF5E30F00CD18C4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		8C175FE11CF5E30F00CD18C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C175FE51CF5E81F00CD18C4 /* CreateTemperatureStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTemperatureStates.swift; sourceTree = "<group>"; };
+		8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTemperatures.swift; sourceTree = "<group>"; };
 		8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTemperatues.swift; sourceTree = "<group>"; };
 		8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsDisplay.swift; sourceTree = "<group>"; };
 		8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsPresenter.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		8CD99EDE1D00B46E0019750B /* TemperatureSettingEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingEntity.swift; sourceTree = "<group>"; };
 		8CD99EE51D017F5F0019750B /* TemperatureSettingEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingEntityTests.swift; path = CosyHomeTests/TemperatureSettingEntityTests.swift; sourceTree = SOURCE_ROOT; };
 		8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureContext.swift; sourceTree = "<group>"; };
+		8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustTemperatures.swift; sourceTree = "<group>"; };
 		96BB3160EF7232E9F7A9D4CE /* Pods-AcceptanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceTests/Pods-AcceptanceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +190,9 @@
 			children = (
 				8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */,
 				8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */,
-				8C175FE51CF5E81F00CD18C4 /* CreateTemperatureStates.swift */,
+				8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */,
 				8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */,
+				8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -502,12 +505,13 @@
 				8C175FEE1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */,
 				8CED7F541D09BFD200609BAB /* TemperatureSettingGroup.swift in Sources */,
 				8C175FDC1CF5E30F00CD18C4 /* FixtureExample.swift in Sources */,
-				8C175FE61CF5E81F00CD18C4 /* CreateTemperatureStates.swift in Sources */,
+				8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */,
 				8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */,
 				8C175FF51CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */,
 				8CD99EE31D015F2E0019750B /* TemperatureSettingEntityGatewaySimple.swift in Sources */,
 				8CD99EE11D00DBD80019750B /* TemperatureSettingEntity.swift in Sources */,
 				8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */,
+				8CED7F581D0AA20600609BAB /* AdjustTemperatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

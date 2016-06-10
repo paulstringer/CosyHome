@@ -12,6 +12,7 @@ class TemperatureSettingsPresenter: TemperatureSettingsInteractorOutput {
     //MARK: Interactor Output
     
     var temperatures: [TemperatureSetting]? {
+       
         didSet {
             
             if let temperatures = temperatures {

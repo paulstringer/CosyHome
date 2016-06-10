@@ -32,20 +32,4 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
         
     }
     
-    class var gateway : TemperatureSettingEntityGateway {
-        
-        get {
-            
-            guard
-                let slumberTemp = temps["Slumber"],
-                let comfyTemp = temps["Comfy"],
-                let cosyTemp = temps["Cosy"] else {
-                    return TemperatureSettingEntityGatewaySimple()
-            }
-            
-            return TemperatureSettingEntityGatewaySimple(slumber: slumberTemp, comfy: comfyTemp, cosy: cosyTemp)
-        }
-        
-    }
-    
 }

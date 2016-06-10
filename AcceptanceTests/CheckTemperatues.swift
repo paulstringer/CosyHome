@@ -10,34 +10,8 @@ import Foundation
 
 @objc(CheckTemperatures)
 
-class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDisplay {
-    
-    // MARK: System Under Test Creation
-    
-    lazy var systemUnderTest : TemperatureSettingsInteractor  = {
-            
-            let gateway = CreateTemperatures.gateway
-            
-            let output = TemperatureSettingsPresenter(display: self)
-            
-            return TemperatureSettingsInteractor(gateway: gateway, output: output)
-        
-//        guard let interactor = TemperatureContext.interactor else {
-//            
-//            fatalError()
-//            
-//        }
-//        
-//        return interactor
-        
-    }()
-    
-    // MARK: System Under Test Outputs
-    
-    var slumber: TemperatureSettingItem?
-    var comfy: TemperatureSettingItem?
-    var cosy: TemperatureSettingItem?
-    
+class CheckTemperatures : NSObject, SlimDecisionTable {
+
     // MARK: DT Inputs
     
     var state = ""
@@ -48,7 +22,7 @@ class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispla
         
         get {
         
-            return temperatureForActiveState?.temp ?? "\(state) Not Found"
+            return setting?.temp ?? "\(state) Not Found"
             
         }
         
@@ -58,7 +32,7 @@ class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispla
         
         get {
             
-            return temperatureForActiveState?.minimum ?? "\(state) Not Found"
+            return setting?.minimum ?? "\(state) Not Found"
 
         }
         
@@ -67,27 +41,21 @@ class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispla
     var maximum: String {
         get {
            
-            return temperatureForActiveState?.maximum ?? "\(state) Not Found"
+            return setting?.maximum ?? "\(state) Not Found"
             
         }
     }
     
-    func execute() {
-
-        systemUnderTest.start()
-        
-    }
-    
-    var temperatureForActiveState: TemperatureSettingItem? {
+    var setting: TemperatureSettingItem? {
         
         get {
             switch state {
             case "Slumber":
-                return slumber
+                return TemperatureContext.slumber
             case "Comfy":
-                return comfy
+                return TemperatureContext.comfy
             case "Cosy":
-                return cosy
+                return TemperatureContext.cosy
             default:
                 return nil
             }
@@ -96,52 +64,9 @@ class CheckTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDispla
     }
 
     
-}
-
-
-@objc(AdjustTemperatures)
-
-class AdjustTemperatures : NSObject, SlimDecisionTable, TemperatureSettingsDisplay {
-    
-    // MARK: System Under Test Creation
-    
-    lazy var systemUnderTest : TemperatureSettingsInteractor  = {
-        
-        let gateway = CreateTemperatures.gateway
-        
-        let output = TemperatureSettingsPresenter(display: self)
-        
-        return TemperatureSettingsInteractor(gateway: gateway, output: output)
-        
-    }()
-    
-    // MARK: System Under Test Outputs
-    
-    var slumber: TemperatureSettingItem?
-    var comfy: TemperatureSettingItem?
-    var cosy: TemperatureSettingItem?
-    
-    // MARK: DT Inputs
-    
-    var state = ""
-    var temp = "0"
-    
-    func  execute() {
-        
-        let temperature = Double(self.temp) ?? 0.0
-        
-        switch state {
-        case "Slumber":
-            return systemUnderTest.adjustSlumber( temperature )
-        case "Comfy":
-            return systemUnderTest.adjustComfy( temperature )
-        case "Cosy":
-            return systemUnderTest.adjustCosy( temperature )
-        default:
-            return
-        }
-        
+    func execute() {
+        // ...
     }
     
-    
 }
+

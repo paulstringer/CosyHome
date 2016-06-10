@@ -100,13 +100,13 @@ struct TemperatureSettingsInteractor {
     
     private mutating func adjustTemperatureWithType(type: TemperatureSettingEntityType, to temperature: Double) {
     
-        if var temperatureGroup = temperatureGroup {
-            
-            temperatureGroup.adjustTemperatureWithType(type, to: temperature)
-                
-            output.temperatures = TemperatureSettingsInteractor.transform(temperatureGroup)
-   
+        temperatureGroup?.adjustTemperatureWithType(type, to: temperature)
+        
+        guard let temperatureGroup = temperatureGroup else {
+            return
         }
+        
+        output.temperatures = TemperatureSettingsInteractor.transform(temperatureGroup)
         
     }
     

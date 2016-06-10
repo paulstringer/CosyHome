@@ -133,6 +133,18 @@ class TemperatureSettingsInteractorTests: XCTestCase {
         XCTAssertEqual(output.temperatures?[1].maximum, 23.0)
     }
     
+    func testAdjustingTwoSettings() {
+        
+        startWithGatewayTemperatures(14, comfy: 19, cosy: 21)
+        
+        interactor.adjustSlumber(16)
+        interactor.adjustCosy(24)
+        
+        XCTAssertEqual(output.temperatures?[0].temperature, 16)
+        XCTAssertEqual(output.temperatures?[1].temperature, 19)
+        XCTAssertEqual(output.temperatures?[2].temperature, 24)
+    }
+    
     //MARK: Helpers
     
     func startWithGatewayTemperatures(slumber: Double = 7, comfy: Double = 18, cosy: Double = 21) {
