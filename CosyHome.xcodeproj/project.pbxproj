@@ -15,7 +15,6 @@
 		8C175FA51CF5DE4100CD18C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA41CF5DE4100CD18C4 /* Assets.xcassets */; };
 		8C175FA81CF5DE4100CD18C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA61CF5DE4100CD18C4 /* LaunchScreen.storyboard */; };
 		8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FD81CF5E30F00CD18C4 /* AcceptanceTests.m */; };
-		8C175FDC1CF5E30F00CD18C4 /* FixtureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */; };
 		8C175FE01CF5E30F00CD18C4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FDF1CF5E30F00CD18C4 /* Empty.xib */; };
 		8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */; };
 		8C175FE81CF5EAEB00CD18C4 /* CheckTemperatues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */; };
@@ -66,7 +65,6 @@
 		8C175FB41CF5DE4100CD18C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C175FD51CF5E30F00CD18C4 /* AcceptanceTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcceptanceTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C175FD81CF5E30F00CD18C4 /* AcceptanceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcceptanceTests.m; sourceTree = "<group>"; };
-		8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureExample.swift; sourceTree = "<group>"; };
 		8C175FDD1CF5E30F00CD18C4 /* SlimTables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlimTables.h; sourceTree = "<group>"; };
 		8C175FDE1CF5E30F00CD18C4 /* AcceptanceTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AcceptanceTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8C175FDF1CF5E30F00CD18C4 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 		8C175FDA1CF5E30F00CD18C4 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				8C175FDB1CF5E30F00CD18C4 /* FixtureExample.swift */,
 				8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */,
 				8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */,
 				8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */,
@@ -504,7 +501,6 @@
 				8CED7F561D09DF3E00609BAB /* TemperatureContext.swift in Sources */,
 				8C175FEE1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */,
 				8CED7F541D09BFD200609BAB /* TemperatureSettingGroup.swift in Sources */,
-				8C175FDC1CF5E30F00CD18C4 /* FixtureExample.swift in Sources */,
 				8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */,
 				8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */,
 				8C175FF51CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */,
