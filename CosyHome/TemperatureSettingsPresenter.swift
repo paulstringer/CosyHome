@@ -1,7 +1,7 @@
 import Foundation
 
 
-class TemperatureSettingsPresenter: TemperatureSettingsInteractorOutput {
+class TemperatureSettingsPresenter: TemperatureInteractorOutput {
     
     var display: TemperatureSettingsDisplay
     
@@ -37,7 +37,7 @@ class TemperatureSettingsPresenter: TemperatureSettingsInteractorOutput {
         }
     }
     
-    var message: TemperatureSettingsInteractorOutputMessage?
+    var message: TemperatureInteractorOutputMessage?
     
     private func itemForTemperature(setting: TemperatureSetting) -> TemperatureSettingItem {
         

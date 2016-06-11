@@ -2,32 +2,32 @@ import XCTest
 
 @testable import CosyHome
 
-class TemperatureSettingsInteractorTests: XCTestCase {
+class TemperatureInteractorTests: XCTestCase {
 
     var gateway = TemperatureSettingEntityGatewaySimple()
     
-    var output = TemperatureSettingsInteractorOutputSpy()
+    var output = TemperatureInteractorOutputSpy()
     
-    var interactor: TemperatureSettingsInteractor!
+    var interactor: TemperatureInteractor!
     
     override func setUp() {
         
         super.setUp()
         
-        interactor = TemperatureSettingsInteractor(gateway: gateway, output: output)
+        interactor = TemperatureInteractor(gateway: gateway, output: output)
     }
     
     func testStartWhenGatewayFails() {
         
         gateway.enabled = false
         
-        interactor.start()
+        interactor.request(.load)
         
         guard let message = output.message else {
             XCTFail(); return
         }
         
-        XCTAssertEqual(message, TemperatureSettingsInteractorOutputMessage.Error_Fetching_Temperatures)
+        XCTAssertEqual(message, TemperatureInteractorOutputMessage.Error_Fetching_Temperatures)
 
     }
     
@@ -151,7 +151,7 @@ class TemperatureSettingsInteractorTests: XCTestCase {
         
         gateway.group = TemperatureSettingGroup(slumber: slumber, comfy: comfy, cosy: cosy)
         
-        interactor.start()
+        interactor.request(.load)
     }
 
     

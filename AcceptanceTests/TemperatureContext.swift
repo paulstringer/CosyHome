@@ -10,7 +10,7 @@ import Foundation
 
 struct TemperatureContext: TemperatureSettingsDisplay {
     
-    static var interactor: TemperatureSettingsInteractor?
+    static var interactor: TemperatureInteractor?
     
     static var slumber: TemperatureSettingItem?
     static var comfy: TemperatureSettingItem?
@@ -22,12 +22,13 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         
         let output = TemperatureSettingsPresenter(display: self)
         
-        TemperatureContext.interactor = TemperatureSettingsInteractor(gateway: gateway, output: output)
+        TemperatureContext.interactor = TemperatureInteractor(gateway: gateway, output: output)
         
-        TemperatureContext.interactor?.start()
+        TemperatureContext.interactor?.request(.load)
     }
     
     var slumber: TemperatureSettingItem? {
+        
         set {
             TemperatureContext.slumber = newValue
         }
@@ -35,9 +36,11 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         get {
             return TemperatureContext.slumber
         }
+        
     }
     
     var comfy: TemperatureSettingItem? {
+        
         set {
             TemperatureContext.comfy = newValue
         }
@@ -45,6 +48,7 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         get {
             return TemperatureContext.comfy
         }
+        
     }
     
     var cosy: TemperatureSettingItem? {

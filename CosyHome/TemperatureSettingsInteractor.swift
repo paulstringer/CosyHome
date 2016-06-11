@@ -9,9 +9,9 @@ enum TemperatureSettingEntityGatewayResponse {
     case error
 }
 
-protocol TemperatureSettingsInteractorOutput {
+protocol TemperatureInteractorOutput {
     var temperatures: [TemperatureSetting]? { get set }
-    var message: TemperatureSettingsInteractorOutputMessage?{ get set }
+    var message: TemperatureInteractorOutputMessage?{ get set }
 }
 
 enum TemperatureSettingType {
@@ -49,22 +49,26 @@ func ==(lhs: TemperatureSetting, rhs: TemperatureSetting) -> Bool{
     return lhs.temperature == rhs.temperature
 }
 
-enum TemperatureSettingsInteractorOutputMessage {
+enum TemperatureInteractorOutputMessage {
     case Error_Fetching_Temperatures
 }
 
-struct TemperatureSettingsInteractor {
+enum TemperatureSettingsInputRequest {
+    case load
+}
+
+struct TemperatureInteractor {
     
     let gateway: TemperatureSettingEntityGateway
-    var output: TemperatureSettingsInteractorOutput
+    var output: TemperatureInteractorOutput
     var temperatureGroup: TemperatureSettingGroup?
     
-    init(gateway: TemperatureSettingEntityGateway, output: TemperatureSettingsInteractorOutput) {
+    init(gateway: TemperatureSettingEntityGateway, output: TemperatureInteractorOutput) {
         self.gateway = gateway
         self.output = output
     }
     
-    mutating func start() {
+    mutating func request(request: TemperatureSettingsInputRequest) {
         
         switch gateway.fetchGroup() {
         
@@ -72,7 +76,7 @@ struct TemperatureSettingsInteractor {
             
             temperatureGroup = group
             
-            output.temperatures = TemperatureSettingsInteractor.transform(group)
+            output.temperatures = TemperatureInteractor.transform(group)
         
         case .error:
             
@@ -106,7 +110,7 @@ struct TemperatureSettingsInteractor {
             return
         }
         
-        output.temperatures = TemperatureSettingsInteractor.transform(temperatureGroup)
+        output.temperatures = TemperatureInteractor.transform(temperatureGroup)
         
     }
     

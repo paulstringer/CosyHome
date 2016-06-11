@@ -2,8 +2,8 @@ import Foundation
 
 @testable import CosyHome
 
-class TemperatureSettingsInteractorOutputSpy: TemperatureSettingsInteractorOutput {
+class TemperatureInteractorOutputSpy: TemperatureInteractorOutput {
     
     var temperatures: [TemperatureSetting]?
-    var message: TemperatureSettingsInteractorOutputMessage?
+    var message: TemperatureInteractorOutputMessage?
 }
