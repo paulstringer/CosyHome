@@ -1,6 +1,6 @@
 import Foundation
 
-class TemperatureSettingEntityGatewaySimple : TemperatureSettingEntityGateway {
+class TemperatureGatewaySimple : TemperatureGateway {
     
     var group: TemperatureSettingGroup
     var enabled = true
@@ -17,7 +17,7 @@ class TemperatureSettingEntityGatewaySimple : TemperatureSettingEntityGateway {
         
     }
     
-    func fetchGroup() -> TemperatureSettingEntityGatewayResponse {
+    func fetchGroup() -> TemperatureGatewayResponse {
         
         if !enabled {
             return .error

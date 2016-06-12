@@ -1,10 +1,10 @@
 import Foundation
 
-protocol TemperatureSettingEntityGateway {
-    func fetchGroup() -> TemperatureSettingEntityGatewayResponse
+protocol TemperatureGateway {
+    func fetchGroup() -> TemperatureGatewayResponse
 }
 
-enum TemperatureSettingEntityGatewayResponse {
+enum TemperatureGatewayResponse {
     case success(group: TemperatureSettingGroup)
     case error
 }
@@ -59,11 +59,11 @@ enum TemperatureSettingsInputRequest {
 
 struct TemperatureInteractor {
     
-    let gateway: TemperatureSettingEntityGateway
+    let gateway: TemperatureGateway
     var output: TemperatureInteractorOutput
     var temperatureGroup: TemperatureSettingGroup?
     
-    init(gateway: TemperatureSettingEntityGateway, output: TemperatureInteractorOutput) {
+    init(gateway: TemperatureGateway, output: TemperatureInteractorOutput) {
         self.gateway = gateway
         self.output = output
     }

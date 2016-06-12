@@ -1,12 +1,6 @@
-//
-//  TemperatureContext.swift
-//  CosyHome
-//
-//  Created by Paul Stringer on 09/06/2016.
-//  Copyright © 2016 stringerstheory. All rights reserved.
-//
-
 import Foundation
+
+typealias TemperatureContextInput = (slumber: Double, comfy: Double, cosy: Double)
 
 struct TemperatureContext: TemperatureSettingsDisplay {
     
@@ -16,15 +10,21 @@ struct TemperatureContext: TemperatureSettingsDisplay {
     static var comfy: TemperatureSettingItem?
     static var cosy: TemperatureSettingItem?
     
-    init(slumber: Double, comfy: Double, cosy: Double) {
+    init(temperatures: TemperatureContextInput) {
         
-        let gateway = TemperatureSettingEntityGatewaySimple(slumber: slumber, comfy: comfy, cosy: cosy)
-        
-        let output = TemperatureSettingsPresenter(display: self)
-        
-        TemperatureContext.interactor = TemperatureInteractor(gateway: gateway, output: output)
+        TemperatureContext.interactor = createInteractor(temperatures)
         
         TemperatureContext.interactor?.request(.load)
+    }
+    
+    private func createInteractor(temperatures: TemperatureContextInput) -> TemperatureInteractor {
+    
+        let gateway = TemperatureGatewaySimple(slumber: temperatures.slumber, comfy: temperatures.comfy, cosy: temperatures.cosy)
+    
+        let output = TemperaturePresenter(display: self)
+    
+        return TemperatureInteractor(gateway: gateway, output: output)
+    
     }
     
     var slumber: TemperatureSettingItem? {
@@ -60,5 +60,7 @@ struct TemperatureContext: TemperatureSettingsDisplay {
             return TemperatureContext.cosy
         }
     }
+    
+    
     
 }

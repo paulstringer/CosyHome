@@ -186,10 +186,7 @@
 		8C175FDA1CF5E30F00CD18C4 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */,
-				8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */,
-				8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */,
-				8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */,
+				8CF3C2271D0D78E30062F6A4 /* Temperature */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -263,6 +260,17 @@
 				8CD99EDB1D006C490019750B /* TemperatureSettingEntityGatewaySimple.swift */,
 			);
 			name = "Enterprise Entities";
+			sourceTree = "<group>";
+		};
+		8CF3C2271D0D78E30062F6A4 /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */,
+				8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */,
+				8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */,
+				8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */,
+			);
+			name = Temperature;
 			sourceTree = "<group>";
 		};
 		E2008B8CF5EE238D3B24EC18 /* Frameworks */ = {

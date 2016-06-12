@@ -1,35 +1,42 @@
 import Foundation
 
+
+
 @objc(CreateTemperatures)
 
 class CreateTemperatures : NSObject, SlimDecisionTable {
     
+    // Fixture Inputs
+    
     var state = ""
     var temp = "0"
-
-    private static var context: TemperatureContext?
-    private static var temps = [String:Double]()
     
-    func beginTable() {
-        
-        CreateTemperatures.temps.removeAll()
-        
-    }
+    // Fixture Input Storage
+    
+    private var temperatureValues = [String:Double]()
+
+    // Decision Table
     
     func execute() {
 
-        CreateTemperatures.temps[state] = Double(temp)!
+        temperatureValues[state] = Double(temp)!
         
     }
     
     func endTable() {
         
-        let slumberTemp = CreateTemperatures.temps["Slumber"] ?? 0
-        let comfyTemp = CreateTemperatures.temps["Comfy"] ?? 0
-        let cosyTemp = CreateTemperatures.temps["Cosy"] ?? 0
-            
-        CreateTemperatures.context = TemperatureContext(slumber: slumberTemp, comfy: comfyTemp, cosy: cosyTemp)
+        _ = TemperatureContext(temperatures: temperatures)
         
     }
+    
+    lazy private var temperatures: TemperatureContextInput = {
+        
+        let slumber = self.temperatureValues["Slumber"] ?? 0
+        let comfy = self.temperatureValues["Comfy"] ?? 0
+        let cosy = self.temperatureValues["Cosy"] ?? 0
+        
+        return (slumber, comfy, cosy)
+        
+    }()
     
 }

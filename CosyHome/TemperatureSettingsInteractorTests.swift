@@ -4,7 +4,7 @@ import XCTest
 
 class TemperatureInteractorTests: XCTestCase {
 
-    var gateway = TemperatureSettingEntityGatewaySimple()
+    var gateway = TemperatureGatewaySimple()
     
     var output = TemperatureInteractorOutputSpy()
     

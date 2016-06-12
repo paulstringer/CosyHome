@@ -12,11 +12,11 @@ import XCTest
 class TemperatureDisplayPresenterTests: XCTestCase {
     
     let displaySpy = TemperatureSettingsDisplaySpy()
-    var presenter: TemperatureSettingsPresenter!
+    var presenter: TemperaturePresenter!
     
     override func setUp() {
         super.setUp()
-        presenter = TemperatureSettingsPresenter(display: displaySpy)
+        presenter = TemperaturePresenter(display: displaySpy)
     }
     
     func testSetZeroTemperatures() {

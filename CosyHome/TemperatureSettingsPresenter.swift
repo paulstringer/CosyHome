@@ -1,7 +1,7 @@
 import Foundation
 
 
-class TemperatureSettingsPresenter: TemperatureInteractorOutput {
+class TemperaturePresenter: TemperatureInteractorOutput {
     
     var display: TemperatureSettingsDisplay
     
