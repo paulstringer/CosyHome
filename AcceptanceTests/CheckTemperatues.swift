@@ -2,52 +2,37 @@ import Foundation
 
 @objc(CheckTemperatures)
 
-class CheckTemperatures : NSObject, SlimDecisionTable {
+class CheckTemperatures : NSObject, SlimQueryTable {
 
-    // MARK: DT Inputs
-    
-    var state = ""
-    
-    // MARK: DT Outputs
-    
-    var temp: String {
-        
-        get { return setting?.temp ?? "\(state) Not Found"  }
-        
-    }
-    
-    var minimum: String {
-        
-        get { return setting?.minimum ?? "\(state) Not Found" }
-        
-    }
-    
-    var maximum: String {
-        
-        get { return setting?.maximum ?? "\(state) Not Found" }
-        
-    }
-    
-    var setting: TemperatureSettingItem? {
-        
-        get {
-            switch state {
-            case "Slumber":
-                return TemperatureContext.slumber
-            case "Comfy":
-                return TemperatureContext.comfy
-            case "Cosy":
-                return TemperatureContext.cosy
-            default:
-                return nil
-            }
+    func query() -> [AnyObject]! {
+       
+        let query = [TemperatureContext.slumber, TemperatureContext.comfy, TemperatureContext.cosy].map { (item) -> [String:String] in
+            
+            return queryRowWithTemperatureItem(item)
+            
         }
         
+        return NSArray(array: query) as [AnyObject]
+        
+        
     }
-
     
-    func execute() {
-        // ...
+    private func queryRowWithTemperatureItem(item: TemperatureSettingItem?) -> [String:String] {
+        
+        
+        if let item = item {
+            
+            let state = TemperatureContext.stateForItem(item)
+            
+            return ["state":state, "minimum":item.minimum, "temperature": item.temp, "maximum": item.maximum]
+            
+        } else {
+            
+            return [:]
+            
+        }
+        
+        
     }
     
 }

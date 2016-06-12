@@ -10,11 +10,11 @@
 |State       |temp  |
 |${SLUMBER}  |17    |
 
-|Check Temperatures                |
-|State     |temp?|minimum?|maximum?|
-|${SLUMBER}|17   |7       |17      |
-|${COMFY}  |18   |18      |20      |
-|${COSY}   |21   |19      |30      |
+|Query: Check Temperatures             |
+|state     |temperature|minimum|maximum|
+|${SLUMBER}|17         |7      |17     |
+|${COMFY}  |18         |18     |20     |
+|${COSY}   |21         |19     |30     |
 
 !3 Increasing 'Comfy' should adjust the maximum 'Slumber' temperature to 1 degree less than our 'Comfy' temperature
 
@@ -28,11 +28,11 @@
 |State      |temp   |
 |${COMFY}   |20     |
 
-|Check Temperatures                |
-|State     |temp?|minimum?|maximum?|
-|${SLUMBER}|14   |7       |19      |
-|${COMFY}  |20   |15      |20      |
-|${COSY}   |21   |21      |30      |
+|Query: Check Temperatures             |
+|state     |temperature|minimum|maximum|
+|${SLUMBER}|14         |7      |19     |
+|${COMFY}  |20         |15     |20     |
+|${COSY}   |21         |21     |30     |
 
 !3 Increasing 'Cosy' should adjust the maximum 'Comfy' temperature to 1 degree less than our 'Cosy' temperature
 
@@ -46,11 +46,11 @@
 |State     |temp    |
 |Cosy      |24      |
 
-|Check Temperatures             |
-|State  |temp?|minimum?|maximum?|
-|Slumber|14   |7       |17      |
-|Comfy  |18   |15      |23      |
-|Cosy   |24   |19      |30      |
+|Query: Check Temperatures          |
+|state  |temperature|minimum|maximum|
+|Slumber|14         |7      |17     |
+|Comfy  |18         |15     |23     |
+|Cosy   |24         |19     |30     |
 
 
 !3 Adjusting all temperatures in turn should change the other temperatures accordingly based on the previous rules
@@ -67,8 +67,8 @@
 |Cosy       |24     |
 |Comfy      |21     |
 
-|Check Temperatures             |
-|State  |temp?|minimum?|maximum?|
-|Slumber|16   |7       |20      |
-|Comfy  |21   |17      |23      |
-|Cosy   |24   |22      |30      |
+|Query: Check Temperatures          |
+|state  |temperature|minimum|maximum|
+|Slumber|16         |7      |20     |
+|Comfy  |21         |17     |23     |
+|Cosy   |24         |22     |30     |

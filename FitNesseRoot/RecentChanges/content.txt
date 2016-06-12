@@ -1,5 +1,5 @@
-|CosyHomeTemp.CosyTemperatures||08:44:51 Fri, Jun 10, 2016|
-|CosyHomeTemp.CosyTemperaturesAdjustements||08:44:26 Fri, Jun 10, 2016|
+|CosyHomeTemp.CosyTemperaturesAdjustements||13:11:21 Sun, Jun 12, 2016|
+|CosyHomeTemp.CosyTemperatures||12:49:59 Sun, Jun 12, 2016|
 |CosyHomeTemp.SetUp||08:43:05 Fri, Jun 10, 2016|
 |CosyHomeTemp||14:46:40 Wed, May 25, 2016|
 |FrontPage||14:45:31 Wed, May 25, 2016|
