@@ -55,7 +55,7 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         get { return TemperatureContext.cosy }
     }
     
-    static func stateForItem(item: TemperatureSettingItem) -> String {
+    static func stateNameForItem(item: TemperatureSettingItem) -> String {
         
         if item == slumber {
             return FixtureTemperatureState.slumber.rawValue

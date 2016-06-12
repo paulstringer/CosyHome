@@ -7,11 +7,11 @@ class AdjustTemperatures : NSObject, SlimDecisionTable {
     // MARK: DT Inputs
     
     var state = FixtureTemperatureState.undefined.rawValue
-    var temp = "0"
+    var temperature = "0"
     
     func execute() {
         
-        let temperature = Double(self.temp) ?? 0.0
+        let temperature = Double(self.temperature) ?? 0.0
         
         if let adjustment = FixtureTemperatureState(rawValue: state) {
 

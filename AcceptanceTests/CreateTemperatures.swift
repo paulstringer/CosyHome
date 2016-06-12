@@ -8,7 +8,7 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
     
     var state: String = ""
     
-    var temp = "0"
+    var temperature = "0"
     
     // Fixture Input Storage
     
@@ -18,7 +18,7 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
     
     func execute() {
         
-        if let key = FixtureTemperatureState(rawValue: state), let value = Double(temp) {
+        if let key = FixtureTemperatureState(rawValue: state), let value = Double(temperature) {
             
             temperatureValues[key] = value
             

@@ -19,10 +19,9 @@ class CheckTemperatures : NSObject, SlimQueryTable {
     
     private func queryRowWithTemperatureItem(item: TemperatureSettingItem?) -> [String:String] {
         
-        
         if let item = item {
             
-            let state = TemperatureContext.stateForItem(item)
+            let state = TemperatureContext.stateNameForItem(item)
             
             return ["state":state, "minimum":item.minimum, "temperature": item.temp, "maximum": item.maximum]
             
