@@ -8,7 +8,7 @@ class TemperaturePresenter: TemperatureInteractorOutput {
         self.view = view
     }
     
-    //MARK: Interactor Output
+    //MARK: Temperature Interactor Output
     
     var temperatureGroup: TemperatureGroupEntity? {
        
@@ -28,6 +28,8 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     }
     
     var message: TemperatureInteractorOutputMessage?
+    
+    //MARK: Private
     
     private func itemForTemperature(setting: TemperatureSettingEntity) -> TemperatureGroupItem {
         
