@@ -24,8 +24,6 @@
 		8C175FEE1CF5F4BE00CD18C4 /* TemperaturePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */; };
 		8C175FF01CF5F4F200CD18C4 /* TemperaturePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEF1CF5F4F200CD18C4 /* TemperaturePresenterTests.swift */; };
 		8C175FF21CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF11CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift */; };
-		8C175FF41CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */; };
-		8C175FF51CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */; };
 		8CD99ED31D00478A0019750B /* TemperatureInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */; };
 		8CD99ED51D0047F60019750B /* TemperatureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */; };
 		8CD99ED71D0063730019750B /* TemperatureInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */; };
@@ -76,7 +74,6 @@
 		8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperaturePresenter.swift; sourceTree = "<group>"; };
 		8C175FEF1CF5F4F200CD18C4 /* TemperaturePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperaturePresenterTests.swift; path = CosyHomeTests/TemperaturePresenterTests.swift; sourceTree = SOURCE_ROOT; };
 		8C175FF11CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureGroupViewSpy.swift; path = CosyHomeTests/TemperatureGroupViewSpy.swift; sourceTree = SOURCE_ROOT; };
-		8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractorOutput.swift; sourceTree = "<group>"; };
 		8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractorTests.swift; sourceTree = "<group>"; };
 		8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractor.swift; sourceTree = "<group>"; };
 		8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureInteractorOutputSpy.swift; path = CosyHomeTests/TemperatureInteractorOutputSpy.swift; sourceTree = SOURCE_ROOT; };
@@ -239,7 +236,6 @@
 			children = (
 				8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */,
 				8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */,
-				8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */,
 				8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */,
 			);
 			name = I.nteractor;
@@ -472,7 +468,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C175FA01CF5DE4100CD18C4 /* ViewController.swift in Sources */,
-				8C175FF41CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */,
 				8C0633C31D0812DE00DF061F /* TemperatureGroupEntity.swift in Sources */,
 				8CD99EDF1D00B46E0019750B /* TemperatureSettingEntity.swift in Sources */,
 				8C175F9E1CF5DE4100CD18C4 /* AppDelegate.swift in Sources */,
@@ -507,7 +502,6 @@
 				8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */,
 				8C175FEB1CF5F19500CD18C4 /* TemperatureGroupView.swift in Sources */,
 				8CF3C2291D0D83750062F6A4 /* TemperatureFixtureSupport.swift in Sources */,
-				8C175FF51CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */,
 				8CD99EE31D015F2E0019750B /* TemperatureGatewaySimple.swift in Sources */,
 				8CD99EE11D00DBD80019750B /* TemperatureSettingEntity.swift in Sources */,
 				8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */,

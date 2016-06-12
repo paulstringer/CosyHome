@@ -1,6 +1,5 @@
 import Foundation
 
-
 class TemperaturePresenter: TemperatureInteractorOutput {
     
     var view: TemperatureGroupView
@@ -32,13 +31,13 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     private func itemForTemperature(setting: TemperatureSettingEntity) -> TemperatureGroupItem {
         
-        let formatted = temperatureFormattedStringsForSetting(setting)
+        let formatted = formattedStrings(setting)
         
-        return TemperatureGroupItem(temp: formatted.temp, minimum: formatted.min, maximum: formatted.max)
+        return TemperatureGroupItem(temp: formatted.temperature, minimum: formatted.min, maximum: formatted.max)
         
     }
     
-    private func temperatureFormattedStringsForSetting(setting: TemperatureSettingEntity) -> (temp: String, min: String, max:String) {
+    private func formattedStrings(setting: TemperatureSettingEntity) -> (temperature: String, min: String, max:String) {
         
         let formatter = NSNumberFormatter()
         formatter.maximumFractionDigits = 1

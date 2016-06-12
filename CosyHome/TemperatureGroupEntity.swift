@@ -15,15 +15,17 @@ enum TemperatureGroupSettingType {
 
 struct TemperatureGroupEntity{
     
-    private var t: TemperatureGroupModel
+    private var model: TemperatureGroupModel
     
     var settings: (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity, cosy: TemperatureSettingEntity) {
         
         get {
         
-            return TemperatureSettingEntity.entitiesWithSlumber(t.slumber, comfy: t.comfy, cosy: t.cosy)
+            return TemperatureSettingEntity.entitiesWithSlumber(model.slumber, comfy: model.comfy, cosy: model.cosy)
         }
     }
+    
+    //MARK: Initialisation
     
     init() {
         self.init(slumber: 14, comfy: 19, cosy: 21)
@@ -31,13 +33,13 @@ struct TemperatureGroupEntity{
     
     init(slumber: Double, comfy: Double, cosy: Double) {
         
-        self.t = TemperatureGroupModel(slumber: slumber, comfy: comfy, cosy: cosy)
+        self.model = TemperatureGroupModel(slumber: slumber, comfy: comfy, cosy: cosy)
         
     }
     
     init(temperatures: TemperatureGroupModel) {
         
-        self.t = temperatures
+        self.model = temperatures
         
     }
     
@@ -49,15 +51,15 @@ struct TemperatureGroupEntity{
             
         case .Slumber:
             
-            t.slumber = temperature
+            model.slumber = temperature
             
         case .Comfy:
             
-            t.comfy = temperature
+            model.comfy = temperature
             
         case .Cosy:
             
-            t.cosy = temperature
+            model.cosy = temperature
         }
         
     }
