@@ -2,7 +2,7 @@ import Foundation
 
 class TemperatureGatewaySimple : TemperatureGateway {
     
-    var group: TemperatureSettingGroup
+    var group: TemperatureGroupEntity
     var enabled = true
     
     convenience init() {
@@ -13,7 +13,7 @@ class TemperatureGatewaySimple : TemperatureGateway {
     
     init(slumber: Double, comfy: Double, cosy: Double) {
         
-        self.group = TemperatureSettingGroup.groupWithTemperaturesSlumber(slumber, comfy: comfy, cosy: cosy)
+        self.group = TemperatureGroupEntity.groupWithTemperaturesSlumber(slumber, comfy: comfy, cosy: cosy)
         
     }
     

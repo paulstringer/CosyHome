@@ -2,17 +2,17 @@ import XCTest
 
 @testable import CosyHome
 
-class TemperatureSettingEntityTests: XCTestCase {
+class TemperatureGroupItemEntityTests: XCTestCase {
 
     func testLowerThanSevenDegrees() {
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 0.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 0.0)
         
         XCTAssertEqual(setting.temperature, 7.0)
         
     }
     
     func testHigherThanThirtyDegrees() {
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 100.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 100.0)
         
         XCTAssertEqual(setting.temperature, 30.0)
         
@@ -20,21 +20,21 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testMinimumTempOfFirstSetting() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 19.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 19.0)
         
         XCTAssertEqual(setting.minimum, 7.0)
     }
     
     func testMinimumTempOfSettingWithPreviousSettingEqualsOneDegreeHotter() {
         
-        let setting = TemperatureSettingEntity(type: .Comfy, temperature: 19.0, previous: 14.0 )
+        let setting = TemperatureGroupItemEntity(type: .Comfy, temperature: 19.0, previous: 14.0 )
         
         XCTAssertEqual(setting.minimum, 15.0)
     }
     
     func testLowerThanPreviousTemperatureIsAdjustedUp() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 13.0, previous: 14.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 13.0, previous: 14.0)
         
         XCTAssertEqual(setting.temperature, 15.0)
         
@@ -42,14 +42,14 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testMaximumTempOfLastSetting() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 19.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 19.0)
         
         XCTAssertEqual(setting.maximum, 30.0)
     }
     
     func testMaximumTempOfSettingOneDegreeLowerThanNextSetting() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 14.0, next: 16.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 14.0, next: 16.0)
         
         XCTAssertEqual(setting.maximum, 15.0)
         
@@ -57,7 +57,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testHigherThanNextTemperatureOneBelowNextTemperature() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 15.0, next: 14.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 15.0, next: 14.0)
         
         XCTAssertEqual(setting.temperature, 13.0)
         
@@ -65,14 +65,14 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEqualToNextTemperatureAdjustedToOneBelow() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 14.0, next: 14.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 14.0, next: 14.0)
         XCTAssertEqual(setting.temperature, 13.0)
         
     }
     
     func testEqualToPreviousTemperatureAdjustedToOneAbove() {
         
-        let setting = TemperatureSettingEntity(type: .Slumber, temperature: 14.0, previous: 14.0)
+        let setting = TemperatureGroupItemEntity(type: .Slumber, temperature: 14.0, previous: 14.0)
         XCTAssertEqual(setting.temperature, 15.0)
         
     }
@@ -80,7 +80,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesCountAndValues() {
         
-        let (slumber, comfy, cosy) = TemperatureSettingEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) = TemperatureGroupItemEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
         
         XCTAssertEqual(slumber.temperature, 12.0)
         XCTAssertEqual(comfy.temperature, 18.0)
@@ -89,7 +89,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesMinimums() {
         
-        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) =  TemperatureGroupItemEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
         
         XCTAssertEqual(slumber.minimum, 7)
         XCTAssertEqual(comfy.minimum, 13)
@@ -98,7 +98,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesMaximum() {
         
-        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) =  TemperatureGroupItemEntity.entitiesForSlumber(12, comfy: 18, cosy: 21)
         XCTAssertEqual(slumber.maximum, 17)
         XCTAssertEqual(comfy.maximum, 20)
         XCTAssertEqual(cosy.maximum, 30)
@@ -106,7 +106,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testAdjustTemperatureLowerThanMinimum() {
         
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 12)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 12)
         entity.adjustTemperature(0.0)
         XCTAssertEqual(entity.temperature, 7.0)
 
@@ -114,7 +114,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testAdjustTemperatureHigherThanMaximum() {
         
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 12)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 12)
         entity.adjustTemperature(31)
         XCTAssertEqual(entity.temperature, 30.0)
         
@@ -122,41 +122,41 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testAdjustTemperatureWithinBounds() {
         
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 12)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 12)
         entity.adjustTemperature(13)
         XCTAssertEqual(entity.temperature, 13.0)
         
     }
     
     func testAdjustTemperatureLowerThanPrevious() {
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 13, previous: 10)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 13, previous: 10)
         entity.adjustTemperature(9)
         XCTAssertEqual(entity.temperature, 11.0)
         
     }
     
     func testAdjustTemperatureHigherThanNext() {
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 13, next: 18)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 13, next: 18)
         entity.adjustTemperature(19)
         XCTAssertEqual(entity.temperature, 17)
         
     }
     
     func testAdjustTemperatureEqualToNext() {
-        var entity = TemperatureSettingEntity(type: .Slumber, temperature: 13, next: 18)
+        var entity = TemperatureGroupItemEntity(type: .Slumber, temperature: 13, next: 18)
         entity.adjustTemperature(18)
         XCTAssertEqual(entity.temperature, 17)
         
     }
     
     func testAdjustPreviousTemperature() {
-        var entity = TemperatureSettingEntity(type: .Comfy, previous: 9)
+        var entity = TemperatureGroupItemEntity(type: .Comfy, previous: 9)
         entity.previous = 12
         XCTAssertEqual(entity.minimum, 13)
     }
     
     func testAdjustNextTemperature() {
-        var entity = TemperatureSettingEntity(type: .Comfy, previous: 9)
+        var entity = TemperatureGroupItemEntity(type: .Comfy, previous: 9)
         entity.next = 12
         XCTAssertEqual(entity.maximum, 11)
     }

@@ -2,14 +2,14 @@ import Foundation
 
 typealias TemperatureContextInput = (slumber: Double, comfy: Double, cosy: Double)
 
-struct TemperatureContext: TemperatureSettingsDisplay {
+struct TemperatureContext: TemperatureGroupView {
 
     //MARK: Static Context Pesistence
     
     static var interactor: TemperatureInteractor?
-    static var slumber: TemperatureSettingItem?
-    static var comfy: TemperatureSettingItem?
-    static var cosy: TemperatureSettingItem?
+    static var slumber: TemperatureGroupItem?
+    static var comfy: TemperatureGroupItem?
+    static var cosy: TemperatureGroupItem?
     
     //MARK: Context Init
     
@@ -32,7 +32,7 @@ struct TemperatureContext: TemperatureSettingsDisplay {
     
     //MARK: Temperature Settings Display
     
-    var slumber: TemperatureSettingItem? {
+    var slumber: TemperatureGroupItem? {
         
         set {  TemperatureContext.slumber = newValue }
         
@@ -40,7 +40,7 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         
     }
     
-    var comfy: TemperatureSettingItem? {
+    var comfy: TemperatureGroupItem? {
         
         set { TemperatureContext.comfy = newValue }
         
@@ -48,14 +48,14 @@ struct TemperatureContext: TemperatureSettingsDisplay {
         
     }
     
-    var cosy: TemperatureSettingItem? {
+    var cosy: TemperatureGroupItem? {
         
         set { TemperatureContext.cosy = newValue }
         
         get { return TemperatureContext.cosy }
     }
     
-    static func stateNameForItem(item: TemperatureSettingItem) -> String {
+    static func stateNameForItem(item: TemperatureGroupItem) -> String {
         
         if item == slumber {
             return FixtureTemperatureState.slumber.rawValue

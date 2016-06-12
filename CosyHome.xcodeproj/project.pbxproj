@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24A991497A142FEA33995478 /* libPods-AcceptanceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 803F7B399C0DDDAEE3C1F630 /* libPods-AcceptanceTests.a */; };
-		8C0633C31D0812DE00DF061F /* TemperatureSettingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0633C21D0812DE00DF061F /* TemperatureSettingGroup.swift */; };
+		8C0633C31D0812DE00DF061F /* TemperatureGroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0633C21D0812DE00DF061F /* TemperatureGroupEntity.swift */; };
 		8C175F9E1CF5DE4100CD18C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175F9D1CF5DE4100CD18C4 /* AppDelegate.swift */; };
 		8C175FA01CF5DE4100CD18C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175F9F1CF5DE4100CD18C4 /* ViewController.swift */; };
 		8C175FA31CF5DE4100CD18C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FA11CF5DE4100CD18C4 /* Main.storyboard */; };
@@ -18,24 +18,24 @@
 		8C175FE01CF5E30F00CD18C4 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C175FDF1CF5E30F00CD18C4 /* Empty.xib */; };
 		8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */; };
 		8C175FE81CF5EAEB00CD18C4 /* CheckTemperatues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */; };
-		8C175FEA1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */; };
-		8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */; };
-		8C175FED1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */; };
-		8C175FEE1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */; };
-		8C175FF01CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */; };
-		8C175FF21CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */; };
-		8C175FF41CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */; };
-		8C175FF51CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */; };
-		8CD99ED31D00478A0019750B /* TemperatureSettingsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED21D00478A0019750B /* TemperatureSettingsInteractorTests.swift */; };
-		8CD99ED51D0047F60019750B /* TemperatureSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED41D0047F60019750B /* TemperatureSettingsInteractor.swift */; };
-		8CD99ED71D0063730019750B /* TemperatureSettingsInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED61D0063730019750B /* TemperatureSettingsInteractorOutputSpy.swift */; };
-		8CD99EDF1D00B46E0019750B /* TemperatureSettingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDE1D00B46E0019750B /* TemperatureSettingEntity.swift */; };
-		8CD99EE11D00DBD80019750B /* TemperatureSettingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDE1D00B46E0019750B /* TemperatureSettingEntity.swift */; };
-		8CD99EE21D00DC550019750B /* TemperatureSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED41D0047F60019750B /* TemperatureSettingsInteractor.swift */; };
-		8CD99EE31D015F2E0019750B /* TemperatureSettingEntityGatewaySimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDB1D006C490019750B /* TemperatureSettingEntityGatewaySimple.swift */; };
-		8CD99EE41D0164010019750B /* TemperatureSettingEntityGatewaySimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDB1D006C490019750B /* TemperatureSettingEntityGatewaySimple.swift */; };
-		8CD99EE61D017F5F0019750B /* TemperatureSettingEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EE51D017F5F0019750B /* TemperatureSettingEntityTests.swift */; };
-		8CED7F541D09BFD200609BAB /* TemperatureSettingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0633C21D0812DE00DF061F /* TemperatureSettingGroup.swift */; };
+		8C175FEA1CF5F19500CD18C4 /* TemperatureGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureGroupView.swift */; };
+		8C175FEB1CF5F19500CD18C4 /* TemperatureGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FE91CF5F19500CD18C4 /* TemperatureGroupView.swift */; };
+		8C175FED1CF5F4BE00CD18C4 /* TemperaturePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */; };
+		8C175FEE1CF5F4BE00CD18C4 /* TemperaturePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */; };
+		8C175FF01CF5F4F200CD18C4 /* TemperaturePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FEF1CF5F4F200CD18C4 /* TemperaturePresenterTests.swift */; };
+		8C175FF21CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF11CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift */; };
+		8C175FF41CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */; };
+		8C175FF51CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */; };
+		8CD99ED31D00478A0019750B /* TemperatureInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */; };
+		8CD99ED51D0047F60019750B /* TemperatureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */; };
+		8CD99ED71D0063730019750B /* TemperatureInteractorOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */; };
+		8CD99EDF1D00B46E0019750B /* TemperatureGroupItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDE1D00B46E0019750B /* TemperatureGroupItemEntity.swift */; };
+		8CD99EE11D00DBD80019750B /* TemperatureGroupItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDE1D00B46E0019750B /* TemperatureGroupItemEntity.swift */; };
+		8CD99EE21D00DC550019750B /* TemperatureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */; };
+		8CD99EE31D015F2E0019750B /* TemperatureGatewaySimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDB1D006C490019750B /* TemperatureGatewaySimple.swift */; };
+		8CD99EE41D0164010019750B /* TemperatureGatewaySimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EDB1D006C490019750B /* TemperatureGatewaySimple.swift */; };
+		8CD99EE61D017F5F0019750B /* TemperatureGroupItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD99EE51D017F5F0019750B /* TemperatureGroupItemEntityTests.swift */; };
+		8CED7F541D09BFD200609BAB /* TemperatureGroupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0633C21D0812DE00DF061F /* TemperatureGroupEntity.swift */; };
 		8CED7F561D09DF3E00609BAB /* TemperatureContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */; };
 		8CED7F581D0AA20600609BAB /* AdjustTemperatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */; };
 		8CF3C2291D0D83750062F6A4 /* TemperatureFixtureSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3C2281D0D83750062F6A4 /* TemperatureFixtureSupport.swift */; };
@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		803F7B399C0DDDAEE3C1F630 /* libPods-AcceptanceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AcceptanceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89145F371D367340B4EE1E0C /* Pods-AcceptanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AcceptanceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AcceptanceTests/Pods-AcceptanceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8C0633C21D0812DE00DF061F /* TemperatureSettingGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingGroup.swift; sourceTree = "<group>"; };
+		8C0633C21D0812DE00DF061F /* TemperatureGroupEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureGroupEntity.swift; sourceTree = "<group>"; };
 		8C175F9A1CF5DE4100CD18C4 /* CosyHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CosyHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C175F9D1CF5DE4100CD18C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C175F9F1CF5DE4100CD18C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,17 +72,17 @@
 		8C175FE11CF5E30F00CD18C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C175FE51CF5E81F00CD18C4 /* CreateTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTemperatures.swift; sourceTree = "<group>"; };
 		8C175FE71CF5EAEB00CD18C4 /* CheckTemperatues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckTemperatues.swift; sourceTree = "<group>"; };
-		8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsDisplay.swift; sourceTree = "<group>"; };
-		8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsPresenter.swift; sourceTree = "<group>"; };
-		8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingsPresenterTests.swift; path = CosyHomeTests/TemperatureSettingsPresenterTests.swift; sourceTree = SOURCE_ROOT; };
-		8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingsDisplaySpy.swift; path = CosyHomeTests/TemperatureSettingsDisplaySpy.swift; sourceTree = SOURCE_ROOT; };
-		8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsInteractorOutput.swift; sourceTree = "<group>"; };
-		8CD99ED21D00478A0019750B /* TemperatureSettingsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsInteractorTests.swift; sourceTree = "<group>"; };
-		8CD99ED41D0047F60019750B /* TemperatureSettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingsInteractor.swift; sourceTree = "<group>"; };
-		8CD99ED61D0063730019750B /* TemperatureSettingsInteractorOutputSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingsInteractorOutputSpy.swift; path = CosyHomeTests/TemperatureSettingsInteractorOutputSpy.swift; sourceTree = SOURCE_ROOT; };
-		8CD99EDB1D006C490019750B /* TemperatureSettingEntityGatewaySimple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingEntityGatewaySimple.swift; path = CosyHomeTests/TemperatureSettingEntityGatewaySimple.swift; sourceTree = SOURCE_ROOT; };
-		8CD99EDE1D00B46E0019750B /* TemperatureSettingEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSettingEntity.swift; sourceTree = "<group>"; };
-		8CD99EE51D017F5F0019750B /* TemperatureSettingEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureSettingEntityTests.swift; path = CosyHomeTests/TemperatureSettingEntityTests.swift; sourceTree = SOURCE_ROOT; };
+		8C175FE91CF5F19500CD18C4 /* TemperatureGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureGroupView.swift; sourceTree = "<group>"; };
+		8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperaturePresenter.swift; sourceTree = "<group>"; };
+		8C175FEF1CF5F4F200CD18C4 /* TemperaturePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperaturePresenterTests.swift; path = CosyHomeTests/TemperaturePresenterTests.swift; sourceTree = SOURCE_ROOT; };
+		8C175FF11CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureGroupViewSpy.swift; path = CosyHomeTests/TemperatureGroupViewSpy.swift; sourceTree = SOURCE_ROOT; };
+		8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractorOutput.swift; sourceTree = "<group>"; };
+		8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractorTests.swift; sourceTree = "<group>"; };
+		8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureInteractor.swift; sourceTree = "<group>"; };
+		8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureInteractorOutputSpy.swift; path = CosyHomeTests/TemperatureInteractorOutputSpy.swift; sourceTree = SOURCE_ROOT; };
+		8CD99EDB1D006C490019750B /* TemperatureGatewaySimple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureGatewaySimple.swift; path = CosyHomeTests/TemperatureGatewaySimple.swift; sourceTree = SOURCE_ROOT; };
+		8CD99EDE1D00B46E0019750B /* TemperatureGroupItemEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureGroupItemEntity.swift; sourceTree = "<group>"; };
+		8CD99EE51D017F5F0019750B /* TemperatureGroupItemEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureGroupItemEntityTests.swift; path = CosyHomeTests/TemperatureGroupItemEntityTests.swift; sourceTree = SOURCE_ROOT; };
 		8CED7F551D09DF3E00609BAB /* TemperatureContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureContext.swift; sourceTree = "<group>"; };
 		8CED7F571D0AA20600609BAB /* AdjustTemperatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustTemperatures.swift; sourceTree = "<group>"; };
 		8CF3C2281D0D83750062F6A4 /* TemperatureFixtureSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureFixtureSupport.swift; sourceTree = "<group>"; };
@@ -220,8 +220,8 @@
 		8C175FF81CF5FC0000CD18C4 /* V.iew */ = {
 			isa = PBXGroup;
 			children = (
-				8C175FE91CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift */,
-				8C175FF11CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift */,
+				8C175FE91CF5F19500CD18C4 /* TemperatureGroupView.swift */,
+				8C175FF11CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift */,
 			);
 			name = V.iew;
 			sourceTree = "<group>";
@@ -229,8 +229,8 @@
 		8C175FF91CF5FC0700CD18C4 /* P.resenter */ = {
 			isa = PBXGroup;
 			children = (
-				8C175FEC1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift */,
-				8C175FEF1CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift */,
+				8C175FEC1CF5F4BE00CD18C4 /* TemperaturePresenter.swift */,
+				8C175FEF1CF5F4F200CD18C4 /* TemperaturePresenterTests.swift */,
 			);
 			name = P.resenter;
 			sourceTree = "<group>";
@@ -238,10 +238,10 @@
 		8C175FFA1CF5FC1400CD18C4 /* I.nteractor */ = {
 			isa = PBXGroup;
 			children = (
-				8CD99ED41D0047F60019750B /* TemperatureSettingsInteractor.swift */,
-				8CD99ED21D00478A0019750B /* TemperatureSettingsInteractorTests.swift */,
-				8C175FF31CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift */,
-				8CD99ED61D0063730019750B /* TemperatureSettingsInteractorOutputSpy.swift */,
+				8CD99ED41D0047F60019750B /* TemperatureInteractor.swift */,
+				8CD99ED21D00478A0019750B /* TemperatureInteractorTests.swift */,
+				8C175FF31CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift */,
+				8CD99ED61D0063730019750B /* TemperatureInteractorOutputSpy.swift */,
 			);
 			name = I.nteractor;
 			sourceTree = "<group>";
@@ -256,10 +256,10 @@
 		8CD99EDD1D00B4120019750B /* Enterprise Entities */ = {
 			isa = PBXGroup;
 			children = (
-				8C0633C21D0812DE00DF061F /* TemperatureSettingGroup.swift */,
-				8CD99EDE1D00B46E0019750B /* TemperatureSettingEntity.swift */,
-				8CD99EE51D017F5F0019750B /* TemperatureSettingEntityTests.swift */,
-				8CD99EDB1D006C490019750B /* TemperatureSettingEntityGatewaySimple.swift */,
+				8C0633C21D0812DE00DF061F /* TemperatureGroupEntity.swift */,
+				8CD99EDE1D00B46E0019750B /* TemperatureGroupItemEntity.swift */,
+				8CD99EE51D017F5F0019750B /* TemperatureGroupItemEntityTests.swift */,
+				8CD99EDB1D006C490019750B /* TemperatureGatewaySimple.swift */,
 			);
 			name = "Enterprise Entities";
 			sourceTree = "<group>";
@@ -480,14 +480,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C175FA01CF5DE4100CD18C4 /* ViewController.swift in Sources */,
-				8C175FF41CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */,
-				8C0633C31D0812DE00DF061F /* TemperatureSettingGroup.swift in Sources */,
-				8CD99EDF1D00B46E0019750B /* TemperatureSettingEntity.swift in Sources */,
+				8C175FF41CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */,
+				8C0633C31D0812DE00DF061F /* TemperatureGroupEntity.swift in Sources */,
+				8CD99EDF1D00B46E0019750B /* TemperatureGroupItemEntity.swift in Sources */,
 				8C175F9E1CF5DE4100CD18C4 /* AppDelegate.swift in Sources */,
-				8C175FEA1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */,
-				8CD99EE41D0164010019750B /* TemperatureSettingEntityGatewaySimple.swift in Sources */,
-				8CD99ED51D0047F60019750B /* TemperatureSettingsInteractor.swift in Sources */,
-				8C175FED1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */,
+				8C175FEA1CF5F19500CD18C4 /* TemperatureGroupView.swift in Sources */,
+				8CD99EE41D0164010019750B /* TemperatureGatewaySimple.swift in Sources */,
+				8CD99ED51D0047F60019750B /* TemperatureInteractor.swift in Sources */,
+				8C175FED1CF5F4BE00CD18C4 /* TemperaturePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,11 +495,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD99EE61D017F5F0019750B /* TemperatureSettingEntityTests.swift in Sources */,
-				8CD99ED71D0063730019750B /* TemperatureSettingsInteractorOutputSpy.swift in Sources */,
-				8C175FF01CF5F4F200CD18C4 /* TemperatureSettingsPresenterTests.swift in Sources */,
-				8C175FF21CF5F8E700CD18C4 /* TemperatureSettingsDisplaySpy.swift in Sources */,
-				8CD99ED31D00478A0019750B /* TemperatureSettingsInteractorTests.swift in Sources */,
+				8CD99EE61D017F5F0019750B /* TemperatureGroupItemEntityTests.swift in Sources */,
+				8CD99ED71D0063730019750B /* TemperatureInteractorOutputSpy.swift in Sources */,
+				8C175FF01CF5F4F200CD18C4 /* TemperaturePresenterTests.swift in Sources */,
+				8C175FF21CF5F8E700CD18C4 /* TemperatureGroupViewSpy.swift in Sources */,
+				8CD99ED31D00478A0019750B /* TemperatureInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,16 +508,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C175FE81CF5EAEB00CD18C4 /* CheckTemperatues.swift in Sources */,
-				8CD99EE21D00DC550019750B /* TemperatureSettingsInteractor.swift in Sources */,
+				8CD99EE21D00DC550019750B /* TemperatureInteractor.swift in Sources */,
 				8CED7F561D09DF3E00609BAB /* TemperatureContext.swift in Sources */,
-				8C175FEE1CF5F4BE00CD18C4 /* TemperatureSettingsPresenter.swift in Sources */,
-				8CED7F541D09BFD200609BAB /* TemperatureSettingGroup.swift in Sources */,
+				8C175FEE1CF5F4BE00CD18C4 /* TemperaturePresenter.swift in Sources */,
+				8CED7F541D09BFD200609BAB /* TemperatureGroupEntity.swift in Sources */,
 				8C175FE61CF5E81F00CD18C4 /* CreateTemperatures.swift in Sources */,
-				8C175FEB1CF5F19500CD18C4 /* TemperatureSettingsDisplay.swift in Sources */,
+				8C175FEB1CF5F19500CD18C4 /* TemperatureGroupView.swift in Sources */,
 				8CF3C2291D0D83750062F6A4 /* TemperatureFixtureSupport.swift in Sources */,
-				8C175FF51CF5FB4700CD18C4 /* TemperatureSettingsInteractorOutput.swift in Sources */,
-				8CD99EE31D015F2E0019750B /* TemperatureSettingEntityGatewaySimple.swift in Sources */,
-				8CD99EE11D00DBD80019750B /* TemperatureSettingEntity.swift in Sources */,
+				8C175FF51CF5FB4700CD18C4 /* TemperatureInteractorOutput.swift in Sources */,
+				8CD99EE31D015F2E0019750B /* TemperatureGatewaySimple.swift in Sources */,
+				8CD99EE11D00DBD80019750B /* TemperatureGroupItemEntity.swift in Sources */,
 				8C175FD91CF5E30F00CD18C4 /* AcceptanceTests.m in Sources */,
 				8CED7F581D0AA20600609BAB /* AdjustTemperatures.swift in Sources */,
 			);

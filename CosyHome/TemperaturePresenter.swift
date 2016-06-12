@@ -3,15 +3,15 @@ import Foundation
 
 class TemperaturePresenter: TemperatureInteractorOutput {
     
-    var display: TemperatureSettingsDisplay
+    var display: TemperatureGroupView
     
-    init(display: TemperatureSettingsDisplay) {
+    init(display: TemperatureGroupView) {
         self.display = display
     }
     
     //MARK: Interactor Output
     
-    var temperatures: [TemperatureSetting]? {
+    var temperatures: [TemperatureGroupItemEntity]? {
        
         didSet {
             
@@ -39,15 +39,15 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     var message: TemperatureInteractorOutputMessage?
     
-    private func itemForTemperature(setting: TemperatureSetting) -> TemperatureSettingItem {
+    private func itemForTemperature(setting: TemperatureGroupItemEntity) -> TemperatureGroupItem {
         
         let formatted = temperatureFormattedStringsForSetting(setting)
         
-        return TemperatureSettingItem(temp: formatted.temp, minimum: formatted.min, maximum: formatted.max)
+        return TemperatureGroupItem(temp: formatted.temp, minimum: formatted.min, maximum: formatted.max)
         
     }
     
-    private func temperatureFormattedStringsForSetting(setting: TemperatureSetting) -> (temp: String, min: String, max:String) {
+    private func temperatureFormattedStringsForSetting(setting: TemperatureGroupItemEntity) -> (temp: String, min: String, max:String) {
         
         let formatter = NSNumberFormatter()
         formatter.maximumFractionDigits = 1

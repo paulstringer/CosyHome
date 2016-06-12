@@ -7,15 +7,15 @@ private struct TemperatureModel {
     var comfy: Double
 }
 
-struct TemperatureSettingGroup {
+struct TemperatureGroupEntity{
     
     private var temperatures: TemperatureModel
     
-    var settings: (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity,cosy: TemperatureSettingEntity) {
+    var settings: (slumber: TemperatureGroupItemEntity, comfy: TemperatureGroupItemEntity, cosy: TemperatureGroupItemEntity) {
         
         get {
         
-            return TemperatureSettingEntity.entitiesForSlumber(temperatures.slumber, comfy: temperatures.comfy, cosy: temperatures.cosy)
+            return TemperatureGroupItemEntity.entitiesForSlumber(temperatures.slumber, comfy: temperatures.comfy, cosy: temperatures.cosy)
         }
     }
 
@@ -25,7 +25,9 @@ struct TemperatureSettingGroup {
         
     }
     
-    mutating func adjustTemperatureWithType(type: TemperatureSettingEntityType, to temperature: Double) {
+    //MARK: Business Logic 
+    
+    mutating func adjustTemperatureWithType(type: TemperatureGroupItemEntityType, to temperature: Double) {
         
         switch type {
             
@@ -44,9 +46,11 @@ struct TemperatureSettingGroup {
         
     }
     
-    static func groupWithTemperaturesSlumber(slumber: Double, comfy: Double, cosy: Double ) -> TemperatureSettingGroup {
+    //MARK: Factory Creation
+    
+    static func groupWithTemperaturesSlumber(slumber: Double, comfy: Double, cosy: Double ) -> TemperatureGroupEntity {
         
-        return TemperatureSettingGroup(slumber: slumber, comfy: comfy, cosy: cosy)
+        return TemperatureGroupEntity(slumber: slumber, comfy: comfy, cosy: cosy)
         
     }
     

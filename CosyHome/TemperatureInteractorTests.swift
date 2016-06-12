@@ -149,7 +149,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func startWithGatewayTemperatures(slumber: Double = 7, comfy: Double = 18, cosy: Double = 21) {
         
-        gateway.group = TemperatureSettingGroup(slumber: slumber, comfy: comfy, cosy: cosy)
+        gateway.group = TemperatureGroupEntity(slumber: slumber, comfy: comfy, cosy: cosy)
         
         interactor.request(.load)
     }

@@ -1,52 +1,22 @@
 import Foundation
 
+
+//MARK: Entity Gateway Interfaces
+
 protocol TemperatureGateway {
     func fetchGroup() -> TemperatureGatewayResponse
 }
 
 enum TemperatureGatewayResponse {
-    case success(group: TemperatureSettingGroup)
+    case success(group: TemperatureGroupEntity)
     case error
 }
 
+//MARK: Interactor Interfaces
+
 protocol TemperatureInteractorOutput {
-    var temperatures: [TemperatureSetting]? { get set }
+    var temperatures: [TemperatureGroupItemEntity]? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
-}
-
-enum TemperatureSettingType {
-    case Slumber
-    case Comfy
-    case Cosy
-    
-    init(type: TemperatureSettingEntityType) {
-        switch type {
-        case .Slumber:
-            self = .Slumber
-        case .Comfy:
-            self = .Comfy
-        case .Cosy:
-            self = .Cosy
-        }
-    }
-}
-
-struct TemperatureSetting {
-    let type: TemperatureSettingType
-    let temperature: Double
-    let minimum: Double
-    let maximum: Double
-    
-    init(type: TemperatureSettingType = .Slumber, temperature: Double = 0.0, minimum: Double = 0.0, maximum: Double = 0.0) {
-        self.type = type
-        self.temperature = temperature
-        self.minimum = minimum
-        self.maximum = maximum
-    }
-}
-
-func ==(lhs: TemperatureSetting, rhs: TemperatureSetting) -> Bool{
-    return lhs.temperature == rhs.temperature
 }
 
 enum TemperatureInteractorOutputMessage {
@@ -57,16 +27,20 @@ enum TemperatureSettingsInputRequest {
     case load
 }
 
+//MARK: Interactor
+
 struct TemperatureInteractor {
     
     let gateway: TemperatureGateway
     var output: TemperatureInteractorOutput
-    var temperatureGroup: TemperatureSettingGroup?
+    var temperatureGroup: TemperatureGroupEntity?
     
     init(gateway: TemperatureGateway, output: TemperatureInteractorOutput) {
         self.gateway = gateway
         self.output = output
     }
+    
+    //MARK: Requests
     
     mutating func request(request: TemperatureSettingsInputRequest) {
         
@@ -85,6 +59,8 @@ struct TemperatureInteractor {
         
     }
     
+    //MARK: Adjustments
+    
     mutating func adjustSlumber(temperature: Double) {
         
         adjustTemperatureWithType(.Slumber, to: temperature)
@@ -102,7 +78,7 @@ struct TemperatureInteractor {
         
     }
     
-    private mutating func adjustTemperatureWithType(type: TemperatureSettingEntityType, to temperature: Double) {
+    private mutating func adjustTemperatureWithType(type: TemperatureGroupItemEntityType, to temperature: Double) {
     
         temperatureGroup?.adjustTemperatureWithType(type, to: temperature)
         
@@ -114,13 +90,11 @@ struct TemperatureInteractor {
         
     }
     
-    private static func transform(group : TemperatureSettingGroup) -> [TemperatureSetting] {
+    private static func transform(group : TemperatureGroupEntity) -> [TemperatureGroupItemEntity] {
 
         let entities = [group.settings.slumber, group.settings.comfy, group.settings.cosy]
         
-        return entities.map({ (entity) -> TemperatureSetting in
-            return TemperatureSetting(type:TemperatureSettingType(type: entity.type), temperature: entity.temperature, minimum: entity.minimum, maximum: entity.maximum)
-        })
+        return entities
         
     }
     

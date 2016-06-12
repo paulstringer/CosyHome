@@ -17,7 +17,7 @@ class CheckTemperatures : NSObject, SlimQueryTable {
         
     }
     
-    private func queryRowWithTemperatureItem(item: TemperatureSettingItem?) -> [String:String] {
+    private func queryRowWithTemperatureItem(item: TemperatureGroupItem?) -> [String:String] {
         
         if let item = item {
             

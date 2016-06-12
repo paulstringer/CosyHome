@@ -1,14 +1,14 @@
 import Foundation
 
-enum TemperatureSettingEntityType: String {
+enum TemperatureGroupItemEntityType: String {
     case Slumber = "SLUMBER"
     case Comfy = "COMFY"
     case Cosy = "COSY"
 }
 
-struct TemperatureSettingEntity {
+struct TemperatureGroupItemEntity {
     
-    let type: TemperatureSettingEntityType
+    let type: TemperatureGroupItemEntityType
     
     var previous: Double?
     var next: Double?
@@ -58,7 +58,7 @@ struct TemperatureSettingEntity {
         }
     }
     
-    init(type: TemperatureSettingEntityType = .Slumber, temperature: Double = 0.0, previous: Double? = nil, next: Double? = nil) {
+    init(type: TemperatureGroupItemEntityType = .Slumber, temperature: Double = 0.0, previous: Double? = nil, next: Double? = nil) {
         self.type = type
         self.previous = previous
         self.next = next
@@ -72,11 +72,11 @@ struct TemperatureSettingEntity {
     
     //MARK: Factory Method
     
-    static func entitiesForSlumber(slumber: Double, comfy: Double, cosy: Double ) -> (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity, cosy: TemperatureSettingEntity) {
+    static func entitiesForSlumber(slumber: Double, comfy: Double, cosy: Double ) -> (slumber: TemperatureGroupItemEntity, comfy: TemperatureGroupItemEntity, cosy: TemperatureGroupItemEntity) {
         
-        let slumberSetting = TemperatureSettingEntity(type: .Slumber, temperature: slumber, next: comfy)
-        let comfySetting = TemperatureSettingEntity(type: .Comfy, previous: slumber, temperature: comfy, next: cosy)
-        let cosySetting = TemperatureSettingEntity(type: .Cosy, previous: comfy, temperature: cosy)
+        let slumberSetting = TemperatureGroupItemEntity(type: .Slumber, temperature: slumber, next: comfy)
+        let comfySetting = TemperatureGroupItemEntity(type: .Comfy, previous: slumber, temperature: comfy, next: cosy)
+        let cosySetting = TemperatureGroupItemEntity(type: .Cosy, previous: comfy, temperature: cosy)
         
         return (slumberSetting, comfySetting, cosySetting)
         
