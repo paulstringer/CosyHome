@@ -1,58 +1,65 @@
-
 import Foundation
 
-private struct TemperatureModel {
+struct TemperatureGroupModel {
     var slumber: Double
-    var cosy: Double
     var comfy: Double
+    var cosy: Double
+}
+
+
+enum TemperatureGroupSettingType {
+    case Slumber
+    case Comfy
+    case Cosy
 }
 
 struct TemperatureGroupEntity{
     
-    private var temperatures: TemperatureModel
+    private var t: TemperatureGroupModel
     
-    var settings: (slumber: TemperatureGroupItemEntity, comfy: TemperatureGroupItemEntity, cosy: TemperatureGroupItemEntity) {
+    var settings: (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity, cosy: TemperatureSettingEntity) {
         
         get {
         
-            return TemperatureGroupItemEntity.entitiesForSlumber(temperatures.slumber, comfy: temperatures.comfy, cosy: temperatures.cosy)
+            return TemperatureSettingEntity.entitiesWithSlumber(t.slumber, comfy: t.comfy, cosy: t.cosy)
         }
     }
-
+    
+    init() {
+        self.init(slumber: 14, comfy: 19, cosy: 21)
+    }
+    
     init(slumber: Double, comfy: Double, cosy: Double) {
         
-        self.temperatures = TemperatureModel(slumber: slumber, cosy: cosy, comfy: comfy)
+        self.t = TemperatureGroupModel(slumber: slumber, comfy: comfy, cosy: cosy)
+        
+    }
+    
+    init(temperatures: TemperatureGroupModel) {
+        
+        self.t = temperatures
         
     }
     
     //MARK: Business Logic 
     
-    mutating func adjustTemperatureWithType(type: TemperatureGroupItemEntityType, to temperature: Double) {
+    mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
         
         switch type {
             
         case .Slumber:
             
-            temperatures.slumber = temperature
+            t.slumber = temperature
             
         case .Comfy:
             
-            temperatures.comfy = temperature
+            t.comfy = temperature
             
         case .Cosy:
             
-            temperatures.cosy = temperature
+            t.cosy = temperature
         }
         
     }
-    
-    //MARK: Factory Creation
-    
-    static func groupWithTemperaturesSlumber(slumber: Double, comfy: Double, cosy: Double ) -> TemperatureGroupEntity {
-        
-        return TemperatureGroupEntity(slumber: slumber, comfy: comfy, cosy: cosy)
-        
-    }
-    
     
 }

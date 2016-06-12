@@ -15,7 +15,7 @@ enum TemperatureGatewayResponse {
 //MARK: Interactor Interfaces
 
 protocol TemperatureInteractorOutput {
-    var temperatures: [TemperatureGroupItemEntity]? { get set }
+    var temperatures: TemperatureGroupEntity? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
 }
 
@@ -50,7 +50,7 @@ struct TemperatureInteractor {
             
             temperatureGroup = group
             
-            output.temperatures = TemperatureInteractor.transform(group)
+            output.temperatures = temperatureGroup
         
         case .error:
             
@@ -78,7 +78,7 @@ struct TemperatureInteractor {
         
     }
     
-    private mutating func adjustTemperatureWithType(type: TemperatureGroupItemEntityType, to temperature: Double) {
+    private mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
     
         temperatureGroup?.adjustTemperatureWithType(type, to: temperature)
         
@@ -86,15 +86,7 @@ struct TemperatureInteractor {
             return
         }
         
-        output.temperatures = TemperatureInteractor.transform(temperatureGroup)
-        
-    }
-    
-    private static func transform(group : TemperatureGroupEntity) -> [TemperatureGroupItemEntity] {
-
-        let entities = [group.settings.slumber, group.settings.comfy, group.settings.cosy]
-        
-        return entities
+        output.temperatures = temperatureGroup
         
     }
     

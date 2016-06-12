@@ -39,7 +39,7 @@ class TemperatureInteractorTests: XCTestCase {
             XCTFail(); return
         }
         
-        XCTAssertNotNil(temperatures.first)
+        XCTAssertNotNil(temperatures)
         
     }
     
@@ -51,9 +51,9 @@ class TemperatureInteractorTests: XCTestCase {
             XCTFail(); return
         }
         
-        XCTAssertEqual(temperatures.first?.temperature, gateway.group.settings.slumber.temperature)
-        XCTAssertEqual(temperatures.first?.minimum, gateway.group.settings.slumber.minimum)
-        XCTAssertEqual(temperatures.first?.maximum, gateway.group.settings.slumber.maximum)
+        XCTAssertEqual(temperatures.settings.slumber.temperature, gateway.group.settings.slumber.temperature)
+        XCTAssertEqual(temperatures.settings.slumber.minimum, gateway.group.settings.slumber.minimum)
+        XCTAssertEqual(temperatures.settings.slumber.maximum, gateway.group.settings.slumber.maximum)
         
     }
     
@@ -63,7 +63,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(0.0)
         
-        XCTAssertEqual(output.temperatures?.first?.temperature, 7.0)
+        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 7.0)
         
     }
     
@@ -73,7 +73,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(12)
         
-        XCTAssertEqual(output.temperatures?.first?.temperature, 12.0)
+        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 12.0)
         
     }
     
@@ -83,7 +83,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?[1].temperature, 12.0)
+        XCTAssertEqual(output.temperatures?.settings.comfy.temperature, 12.0)
         
     }
     
@@ -93,7 +93,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?[2].temperature, 24.0)
+        XCTAssertEqual(output.temperatures?.settings.cosy.temperature, 24.0)
         
     }
     
@@ -103,7 +103,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(12)
         
-        XCTAssertEqual(output.temperatures?[1].minimum, 13.0)
+        XCTAssertEqual(output.temperatures?.settings.comfy.minimum, 13.0)
     }
     
     func testAdjustingComfyAdjustsSlumberMaximum() {
@@ -112,7 +112,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?[0].maximum, 11.0)
+        XCTAssertEqual(output.temperatures?.settings.slumber.maximum, 11.0)
     }
     
     func testAdjustingComfyAdjustsCosyMinimum() {
@@ -121,7 +121,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?[2].minimum, 13.0)
+        XCTAssertEqual(output.temperatures?.settings.cosy.minimum, 13.0)
     }
     
     func testAdjustingCosyAdjustsComfyMaximum() {
@@ -130,7 +130,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?[1].maximum, 23.0)
+        XCTAssertEqual(output.temperatures?.settings.comfy.maximum, 23.0)
     }
     
     func testAdjustingTwoSettings() {
@@ -140,16 +140,17 @@ class TemperatureInteractorTests: XCTestCase {
         interactor.adjustSlumber(16)
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?[0].temperature, 16)
-        XCTAssertEqual(output.temperatures?[1].temperature, 19)
-        XCTAssertEqual(output.temperatures?[2].temperature, 24)
+        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 16)
+        XCTAssertEqual(output.temperatures?.settings.comfy.temperature, 19)
+        XCTAssertEqual(output.temperatures?.settings.cosy.temperature, 24)
     }
     
     //MARK: Helpers
     
     func startWithGatewayTemperatures(slumber: Double = 7, comfy: Double = 18, cosy: Double = 21) {
         
-        gateway.group = TemperatureGroupEntity(slumber: slumber, comfy: comfy, cosy: cosy)
+        let temperatures = TemperatureGroupModel(slumber: slumber,  comfy: comfy, cosy: cosy)
+        gateway.group = TemperatureGroupEntity(temperatures: temperatures)
         
         interactor.request(.load)
     }

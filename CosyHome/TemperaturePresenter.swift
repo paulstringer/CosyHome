@@ -3,35 +3,26 @@ import Foundation
 
 class TemperaturePresenter: TemperatureInteractorOutput {
     
-    var display: TemperatureGroupView
+    var view: TemperatureGroupView
     
-    init(display: TemperatureGroupView) {
-        self.display = display
+    init(view: TemperatureGroupView) {
+        self.view = view
     }
     
     //MARK: Interactor Output
     
-    var temperatures: [TemperatureGroupItemEntity]? {
+    var temperatures: TemperatureGroupEntity? {
        
         didSet {
             
-            if let temperatures = temperatures {
+            if let temperatures = temperatures?.settings {
                 
-                for setting in temperatures {
-                    
-                    let item = itemForTemperature(setting)
-                    
-                    switch setting.type {
-                    case .Slumber:
-                        display.slumber = item
-                    case .Comfy:
-                        display.comfy = item
-                    case .Cosy:
-                        display.cosy = item
-                    }
+                view.slumber = itemForTemperature(temperatures.slumber)
                 
-                }
+                view.comfy = itemForTemperature(temperatures.comfy)
                 
+                view.cosy = itemForTemperature(temperatures.cosy)
+
             }
 
         }
@@ -39,7 +30,7 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     var message: TemperatureInteractorOutputMessage?
     
-    private func itemForTemperature(setting: TemperatureGroupItemEntity) -> TemperatureGroupItem {
+    private func itemForTemperature(setting: TemperatureSettingEntity) -> TemperatureGroupItem {
         
         let formatted = temperatureFormattedStringsForSetting(setting)
         
@@ -47,11 +38,10 @@ class TemperaturePresenter: TemperatureInteractorOutput {
         
     }
     
-    private func temperatureFormattedStringsForSetting(setting: TemperatureGroupItemEntity) -> (temp: String, min: String, max:String) {
+    private func temperatureFormattedStringsForSetting(setting: TemperatureSettingEntity) -> (temp: String, min: String, max:String) {
         
         let formatter = NSNumberFormatter()
         formatter.maximumFractionDigits = 1
-        
         
         let temp = formatter.stringFromNumber(NSNumber(double: setting.temperature))!
         let min = formatter.stringFromNumber(NSNumber(double: setting.minimum))!

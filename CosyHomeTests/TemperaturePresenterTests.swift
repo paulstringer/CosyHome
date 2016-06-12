@@ -1,11 +1,3 @@
-//
-//  TemperatureDisplayPresenterTests.swift
-//  CosyHome
-//
-//  Created by Paul Stringer on 25/05/2016.
-//  Copyright © 2016 stringerstheory. All rights reserved.
-//
-
 import XCTest
 @testable import CosyHome
 
@@ -16,12 +8,12 @@ class TemperaturePresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        presenter = TemperaturePresenter(display: displaySpy)
+        presenter = TemperaturePresenter(view: displaySpy)
     }
     
     func testSetZeroTemperatures() {
         
-        presenter.temperatures = []
+        presenter.temperatures = nil
         
         XCTAssertNil(displaySpy.comfy)
         XCTAssertNil(displaySpy.cosy)
@@ -30,12 +22,10 @@ class TemperaturePresenterTests: XCTestCase {
 
     func testSetZeroTemperatureSettingConvertsToString() {
         
-        let setting = TemperatureGroupItemEntity();
-        
-        presenter.temperatures = [setting]
+        presenter.temperatures = TemperatureGroupEntity()
         
         if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "7")
+            XCTAssertEqual(setting.temp, "14")
         } else {
             XCTFail()
         }
@@ -43,12 +33,10 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testSetHighestTemperatureSettingConvertsToString() {
         
-        let setting = TemperatureGroupItemEntity(temperature: 30.0);
-        
-        presenter.temperatures = [setting]
+        presenter.temperatures = TemperatureGroupEntity(slumber: 14, comfy: 18, cosy: 21)
         
         if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "30")
+            XCTAssertEqual(setting.temp, "14")
         } else {
             XCTFail()
         }
@@ -57,9 +45,7 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testSetDecimalTemperatureSettingConvertsToString() {
         
-        let setting = TemperatureGroupItemEntity(temperature: 25.5);
-        
-        presenter.temperatures = [setting]
+        presenter.temperatures = TemperatureGroupEntity(slumber: 25.5, comfy: 26.5, cosy: 27.5);
         
         if let setting = displaySpy.slumber {
             XCTAssertEqual(setting.temp, "25.5")
@@ -70,38 +56,12 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testMaximumTemperatureSettingConvertsToString() {
         
-        let setting = TemperatureGroupItemEntity();
+        let group = TemperatureGroupEntity(slumber:20, comfy:29, cosy:30);
         
-        presenter.temperatures = [setting]
-        
-        if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.maximum, "30")
-        } else {
-            XCTFail()
-        }
-    }
-    
-    func testSetDecimalMinimumTemperatureSettingConvertsToString() {
-        
-        let setting = TemperatureGroupItemEntity(temperature: 25.5);
-        
-        presenter.temperatures = [setting]
+        presenter.temperatures = group
         
         if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "25.5")
-        } else {
-            XCTFail()
-        }
-    }
-    
-    func testSetHighestMaximumTemperatureSettingConvertsToString() {
-        
-        let setting = TemperatureGroupItemEntity(temperature: 30.0);
-        
-        presenter.temperatures = [setting]
-        
-        if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "30")
+            XCTAssertEqual(setting.maximum, "28")
         } else {
             XCTFail()
         }
@@ -109,12 +69,12 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testSetDecimalMaximumTemperatureSettingConvertsToString() {
         
-        let setting = TemperatureGroupItemEntity(temperature: 25.5);
+        let group = TemperatureGroupEntity(slumber: 25.5, comfy: 28, cosy: 29);
         
-        presenter.temperatures = [setting]
+        presenter.temperatures = group
         
-        if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "25.5")
+        if let setting = displaySpy.comfy {
+            XCTAssertEqual(setting.minimum, "26.5")
         } else {
             XCTFail()
         }
@@ -122,12 +82,12 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testSetDecimalTemperatureSettingRoundsUpToSingleDecimalPlaceString() {
     
-        let setting = TemperatureGroupItemEntity(temperature: 25.46);
+        let group = TemperatureGroupEntity(slumber: 14.46, comfy: 19, cosy: 29);
         
-        presenter.temperatures = [setting]
+        presenter.temperatures = group
         
         if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.temp, "25.5")
+            XCTAssertEqual(setting.temp, "14.5")
         } else {
             XCTFail()
         }
@@ -136,14 +96,14 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testComfySetting() {
         
-        let comfy = TemperatureGroupItemEntity(type: .Comfy, temperature: 25.45)
+        let group = TemperatureGroupEntity(slumber:14, comfy: 18, cosy: 30)
         
-        presenter.temperatures = [comfy]
+        presenter.temperatures = group
         
         if let setting = displaySpy.comfy {
-            XCTAssertEqual(setting.temp, "25.4")
-            XCTAssertEqual(setting.minimum, "7")
-            XCTAssertEqual(setting.maximum, "30")
+            XCTAssertEqual(setting.temp, "18")
+            XCTAssertEqual(setting.minimum, "15")
+            XCTAssertEqual(setting.maximum, "29")
         } else {
             XCTFail()
         }
@@ -152,13 +112,13 @@ class TemperaturePresenterTests: XCTestCase {
     
     func testCosySetting() {
         
-        let comfy = TemperatureGroupItemEntity(type: .Cosy, temperature: 25.45)
+        let group = TemperatureGroupEntity(slumber: 14, comfy: 18, cosy: 25.45)
         
-        presenter.temperatures = [comfy]
+        presenter.temperatures = group
         
         if let setting = displaySpy.cosy {
             XCTAssertEqual(setting.temp, "25.4")
-            XCTAssertEqual(setting.minimum, "7")
+            XCTAssertEqual(setting.minimum, "19")
             XCTAssertEqual(setting.maximum, "30")
         } else {
             XCTFail()

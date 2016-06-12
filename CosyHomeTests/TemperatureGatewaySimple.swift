@@ -7,13 +7,15 @@ class TemperatureGatewaySimple : TemperatureGateway {
     
     convenience init() {
         
-        self.init(slumber: 14, comfy:18, cosy:21)
+        let temperatures = TemperatureGroupModel(slumber: 14, comfy: 18, cosy: 21)
+        
+        self.init(temperatures:  temperatures)
         
     }
     
-    init(slumber: Double, comfy: Double, cosy: Double) {
+    init(temperatures: TemperatureGroupModel) {
         
-        self.group = TemperatureGroupEntity.groupWithTemperaturesSlumber(slumber, comfy: comfy, cosy: cosy)
+        self.group = TemperatureGroupEntity(temperatures: temperatures)
         
     }
     
