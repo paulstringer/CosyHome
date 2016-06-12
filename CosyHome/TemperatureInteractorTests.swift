@@ -35,7 +35,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        guard let temperatures = output.temperatures else {
+        guard let temperatures = output.temperatureGroup else {
             XCTFail(); return
         }
         
@@ -47,7 +47,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(12, comfy: 18, cosy: 21)
         
-        guard let temperatures = output.temperatures else {
+        guard let temperatures = output.temperatureGroup else {
             XCTFail(); return
         }
         
@@ -63,7 +63,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(0.0)
         
-        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 7.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 7.0)
         
     }
     
@@ -73,7 +73,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(12)
         
-        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 12.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 12.0)
         
     }
     
@@ -83,7 +83,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?.settings.comfy.temperature, 12.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 12.0)
         
     }
     
@@ -93,7 +93,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?.settings.cosy.temperature, 24.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.cosy.temperature, 24.0)
         
     }
     
@@ -103,7 +103,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustSlumber(12)
         
-        XCTAssertEqual(output.temperatures?.settings.comfy.minimum, 13.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.comfy.minimum, 13.0)
     }
     
     func testAdjustingComfyAdjustsSlumberMaximum() {
@@ -112,7 +112,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?.settings.slumber.maximum, 11.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.slumber.maximum, 11.0)
     }
     
     func testAdjustingComfyAdjustsCosyMinimum() {
@@ -121,7 +121,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustComfy(12)
         
-        XCTAssertEqual(output.temperatures?.settings.cosy.minimum, 13.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.cosy.minimum, 13.0)
     }
     
     func testAdjustingCosyAdjustsComfyMaximum() {
@@ -130,7 +130,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?.settings.comfy.maximum, 23.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.comfy.maximum, 23.0)
     }
     
     func testAdjustingTwoSettings() {
@@ -140,9 +140,9 @@ class TemperatureInteractorTests: XCTestCase {
         interactor.adjustSlumber(16)
         interactor.adjustCosy(24)
         
-        XCTAssertEqual(output.temperatures?.settings.slumber.temperature, 16)
-        XCTAssertEqual(output.temperatures?.settings.comfy.temperature, 19)
-        XCTAssertEqual(output.temperatures?.settings.cosy.temperature, 24)
+        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 16)
+        XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 19)
+        XCTAssertEqual(output.temperatureGroup?.settings.cosy.temperature, 24)
     }
     
     //MARK: Helpers

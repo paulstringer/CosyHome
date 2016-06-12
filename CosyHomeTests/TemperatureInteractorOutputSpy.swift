@@ -4,6 +4,6 @@ import Foundation
 
 class TemperatureInteractorOutputSpy: TemperatureInteractorOutput {
     
-    var temperatures: TemperatureGroupEntity?
+    var temperatureGroup: TemperatureGroupEntity?
     var message: TemperatureInteractorOutputMessage?
 }

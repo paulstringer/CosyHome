@@ -1,6 +1,5 @@
 import Foundation
 
-
 //MARK: Entity Gateway Interfaces
 
 protocol TemperatureGateway {
@@ -15,7 +14,7 @@ enum TemperatureGatewayResponse {
 //MARK: Interactor Interfaces
 
 protocol TemperatureInteractorOutput {
-    var temperatures: TemperatureGroupEntity? { get set }
+    var temperatureGroup: TemperatureGroupEntity? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
 }
 
@@ -50,7 +49,7 @@ struct TemperatureInteractor {
             
             temperatureGroup = group
             
-            output.temperatures = temperatureGroup
+            output.temperatureGroup = temperatureGroup
         
         case .error:
             
@@ -86,7 +85,7 @@ struct TemperatureInteractor {
             return
         }
         
-        output.temperatures = temperatureGroup
+        output.temperatureGroup = temperatureGroup
         
     }
     

@@ -11,11 +11,11 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     //MARK: Interactor Output
     
-    var temperatures: TemperatureGroupEntity? {
+    var temperatureGroup: TemperatureGroupEntity? {
        
         didSet {
             
-            if let temperatures = temperatures?.settings {
+            if let temperatures = temperatureGroup?.settings {
                 
                 view.slumber = itemForTemperature(temperatures.slumber)
                 
