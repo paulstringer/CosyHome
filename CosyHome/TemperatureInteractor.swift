@@ -13,6 +13,10 @@ enum TemperatureGatewayResponse {
 
 //MARK: Interactor Interfaces
 
+protocol TemperatureInteractorInput {
+    mutating func request(request: TemperatureSettingsInputRequest)
+}
+
 protocol TemperatureInteractorOutput {
     var temperatureGroup: TemperatureGroupEntity? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
@@ -24,11 +28,14 @@ enum TemperatureInteractorOutputMessage {
 
 enum TemperatureSettingsInputRequest {
     case load
+    case adjustSlumber(temperature: Double)
+    case adjustComfy(temperature: Double)
+    case adjustCosy(temperature: Double)
 }
 
 //MARK: Interactor
 
-struct TemperatureInteractor {
+struct TemperatureInteractor: TemperatureInteractorInput {
     
     let gateway: TemperatureGateway
     var output: TemperatureInteractorOutput
@@ -43,39 +50,53 @@ struct TemperatureInteractor {
     
     mutating func request(request: TemperatureSettingsInputRequest) {
         
-        switch gateway.fetchGroup() {
+        switch request {
+        case .load:
+            loadData()
+        case .adjustSlumber(let temperature):
+            adjustTemperatureWithType(.Slumber, to: temperature)
+        case .adjustComfy(let temperature):
+            adjustTemperatureWithType(.Comfy, to: temperature)
+        case .adjustCosy(let temperature):
+            adjustTemperatureWithType(.Cosy, to: temperature)
+        }
         
+    }
+    
+    mutating private func loadData() {
+        
+        switch gateway.fetchGroup() {
+            
         case .success(let group):
             
             temperatureGroup = group
             
             output.temperatureGroup = temperatureGroup
-        
+            
         case .error:
             
             output.message = .Error_Fetching_Temperatures
         }
         
     }
-    
     //MARK: Adjustments
     
-    mutating func adjustSlumber(temperature: Double) {
-        
-        adjustTemperatureWithType(.Slumber, to: temperature)
-        
-    }
-    
-    mutating func adjustCosy(temperature: Double) {
-        
-        adjustTemperatureWithType(.Cosy, to: temperature)
-    }
-    
-    mutating func adjustComfy(temperature: Double) {
-        
-        adjustTemperatureWithType(.Comfy, to: temperature)
-        
-    }
+//    mutating func adjustSlumber(temperature: Double) {
+//        
+//        adjustTemperatureWithType(.Slumber, to: temperature)
+//        
+//    }
+//    
+//    mutating func adjustCosy(temperature: Double) {
+//        
+//        adjustTemperatureWithType(.Cosy, to: temperature)
+//    }
+//    
+//    mutating func adjustComfy(temperature: Double) {
+//        
+//        adjustTemperatureWithType(.Comfy, to: temperature)
+//        
+//    }
     
     private mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
     
