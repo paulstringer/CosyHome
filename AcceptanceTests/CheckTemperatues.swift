@@ -23,7 +23,7 @@ class CheckTemperatures : NSObject, SlimQueryTable {
             
             let state = TemperatureContext.stateNameForItem(item)
             
-            return ["state":state, "minimum":item.minimum, "temperature": item.temp, "maximum": item.maximum]
+            return ["state":state, "minimum":String(item.minimum), "temperature": item.temp, "maximum": String(item.maximum)]
             
         } else {
             

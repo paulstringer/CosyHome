@@ -59,7 +59,7 @@ class TemperaturePresenterTests: XCTestCase {
         presenter.temperatureGroup = TemperatureGroupEntity(slumber:20, comfy:29, cosy:30);
         
         if let setting = displaySpy.slumber {
-            XCTAssertEqual(setting.maximum, "28")
+            XCTAssertEqual(setting.maximum, 28)
         } else {
             XCTFail()
         }
@@ -70,7 +70,7 @@ class TemperaturePresenterTests: XCTestCase {
         presenter.temperatureGroup = TemperatureGroupEntity(slumber: 25.5, comfy: 28, cosy: 29);
         
         if let setting = displaySpy.comfy {
-            XCTAssertEqual(setting.minimum, "26.5")
+            XCTAssertEqual(setting.minimum, 26.5)
         } else {
             XCTFail()
         }
@@ -94,8 +94,8 @@ class TemperaturePresenterTests: XCTestCase {
         
         if let setting = displaySpy.comfy {
             XCTAssertEqual(setting.temp, "18")
-            XCTAssertEqual(setting.minimum, "15")
-            XCTAssertEqual(setting.maximum, "29")
+            XCTAssertEqual(setting.minimum, 15)
+            XCTAssertEqual(setting.maximum, 29)
         } else {
             XCTFail()
         }
@@ -108,8 +108,8 @@ class TemperaturePresenterTests: XCTestCase {
         
         if let setting = displaySpy.cosy {
             XCTAssertEqual(setting.temp, "25.4")
-            XCTAssertEqual(setting.minimum, "19")
-            XCTAssertEqual(setting.maximum, "30")
+            XCTAssertEqual(setting.minimum, 19)
+            XCTAssertEqual(setting.maximum, 30)
         } else {
             XCTFail()
         }

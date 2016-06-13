@@ -8,8 +8,8 @@ protocol TemperatureGroupView {
 
 struct TemperatureGroupItem: Equatable {
     let temp: String
-    let minimum: String
-    let maximum: String
+    let minimum: Double
+    let maximum: Double
 }
 
 func ==(lhs: TemperatureGroupItem, rhs: TemperatureGroupItem ) -> Bool {
