@@ -1,10 +1,14 @@
+
 import UIKit
 
 class ViewController: UIViewController, TemperatureGroupView {
     
     @IBOutlet var temperatureLabels: [UILabel]!
+    @IBOutlet var steppers: [UIStepper]!
     
-    var input: TemperatureInteractorInput?
+    var input: TemperatureInteractorInput? {
+        didSet {}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,32 +21,75 @@ class ViewController: UIViewController, TemperatureGroupView {
     //MARK: Temperature Group View
     
     var slumber: TemperatureGroupItem? {
+        
         didSet {
-            let label = temperatureLabels[0]
-            label.text = slumber?.temp
+            
+            configureTemperatureGroupItemUI(slumber)
+            
         }
     }
+    
     var comfy: TemperatureGroupItem? {
+        
         didSet {
-            let label = temperatureLabels[1]
-            label.text = comfy?.temp
+            
+            configureTemperatureGroupItemUI(comfy)
+            
         }
     }
+    
     var cosy: TemperatureGroupItem? {
+        
         didSet {
-            let label = temperatureLabels[2]
-            label.text = cosy?.temp
+            
+            configureTemperatureGroupItemUI(cosy)
         }
     }
     
     //MARK: IBActions
     
-    @IBAction func adjustSlumber(sender: AnyObject) {
+    @IBAction func adjustSlumber(sender: UIStepper) {
         
-        input?.request(.adjustSlumber(temperature: 0.0))
+        input?.request(.adjustSlumber(temperature: sender.value))
         
     }
     
     
+    @IBAction func adjustComfy(sender: UIStepper) {
+        
+        input?.request(.adjustComfy(temperature: sender.value))
+        
+    }
+    
+    @IBAction func adjustCosy(sender: UIStepper) {
+        
+        input?.request(.adjustCosy(temperature: sender.value))
+        
+    }
+    
+    //MARK: Private
+    
+    private func configureTemperatureGroupItemUI(item: TemperatureGroupItem?) {
+        
+        guard let item = item, let index = [slumber, comfy, cosy].indexOf({ (x) -> Bool in
+            return x == item
+        }) else {
+            return
+        }
+        
+        configureComponentsWithItem(item, atIndex: index)
+        
+    }
+    
+    private func configureComponentsWithItem(item: TemperatureGroupItem, atIndex index: Int){
+        
+        let label = temperatureLabels[index]
+        label.text = item.temp
+        
+        let stepper = steppers[index]
+        stepper.minimumValue = item.minimum
+        stepper.maximumValue = item.maximum
+        stepper.value = Double(item.temp)!
+    }
 }
 
