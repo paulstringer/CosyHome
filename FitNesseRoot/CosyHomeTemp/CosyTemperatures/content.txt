@@ -8,9 +8,9 @@
 
 |Query: Check Temperatures             |
 |state     |temperature|minimum|maximum|
-|${SLUMBER}|14         |7      |17     |
-|${COMFY}  |18         |15     |20     |
-|${COSY}   |21         |19     |30     |
+|${SLUMBER}|14         |~=7    |~=17   |
+|${COMFY}  |18         |~=15   |~=20   |
+|${COSY}   |21         |~=19   |~=30   |
 
 
 
