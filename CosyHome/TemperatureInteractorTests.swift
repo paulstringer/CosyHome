@@ -61,7 +61,8 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(12.0)
         
-        interactor.adjustSlumber(0.0)
+        interactor.request(.adjustSlumber(temperature: 0.0))
+//        interactor.adjustSlumber(0.0)
         
         XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 7.0)
         
@@ -71,7 +72,8 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.adjustSlumber(12)
+        interactor.request(.adjustSlumber(temperature: 12))
+//        interactor.adjustSlumber(12)
         
         XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 12.0)
         
@@ -81,7 +83,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.adjustComfy(12)
+        interactor.request(.adjustComfy(temperature: 12))
         
         XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 12.0)
         
@@ -91,7 +93,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.adjustCosy(24)
+        interactor.request(.adjustCosy(temperature: 24))
         
         XCTAssertEqual(output.temperatureGroup?.settings.cosy.temperature, 24.0)
         
@@ -101,7 +103,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.adjustSlumber(12)
+        interactor.request(.adjustSlumber(temperature: 12))
         
         XCTAssertEqual(output.temperatureGroup?.settings.comfy.minimum, 13.0)
     }
@@ -110,7 +112,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.adjustComfy(12)
+        interactor.request(.adjustComfy(temperature: 12))
         
         XCTAssertEqual(output.temperatureGroup?.settings.slumber.maximum, 11.0)
     }
@@ -119,7 +121,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.adjustComfy(12)
+        interactor.request(.adjustComfy(temperature: 12))
         
         XCTAssertEqual(output.temperatureGroup?.settings.cosy.minimum, 13.0)
     }
@@ -128,7 +130,7 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.adjustCosy(24)
+        interactor.request(.adjustCosy(temperature: 24))
         
         XCTAssertEqual(output.temperatureGroup?.settings.comfy.maximum, 23.0)
     }
@@ -137,8 +139,8 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(14, comfy: 19, cosy: 21)
         
-        interactor.adjustSlumber(16)
-        interactor.adjustCosy(24)
+        interactor.request(.adjustSlumber(temperature: 16))
+        interactor.request(.adjustCosy(temperature: 24))
         
         XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 16)
         XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 19)

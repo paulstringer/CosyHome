@@ -1,25 +1,48 @@
-//
-//  ViewController.swift
-//  CosyHome
-//
-//  Created by Paul Stringer on 25/05/2016.
-//  Copyright © 2016 stringerstheory. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, TemperatureGroupView {
+    
+    @IBOutlet var temperatureLabels: [UILabel]!
+    
+    var input: TemperatureInteractorInput?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        input?.request(.load)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: Temperature Group View
+    
+    var slumber: TemperatureGroupItem? {
+        didSet {
+            let label = temperatureLabels[0]
+            label.text = slumber?.temp
+        }
     }
-
-
+    var comfy: TemperatureGroupItem? {
+        didSet {
+            let label = temperatureLabels[1]
+            label.text = comfy?.temp
+        }
+    }
+    var cosy: TemperatureGroupItem? {
+        didSet {
+            let label = temperatureLabels[2]
+            label.text = cosy?.temp
+        }
+    }
+    
+    //MARK: IBActions
+    
+    @IBAction func adjustSlumber(sender: AnyObject) {
+        
+        input?.request(.adjustSlumber(temperature: 0.0))
+        
+    }
+    
+    
 }
 
