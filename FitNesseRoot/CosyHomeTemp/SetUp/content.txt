@@ -1,6 +1,6 @@
 !contents -R2 -g -p -f -h
 
-!define SLUMBER {Slumber}
-!define COMFY {Comfy}
-!define COSY {Cosy}
+!define LOW {Low}
+!define MIDDLE {Middle}
+!define HIGH {High}
 

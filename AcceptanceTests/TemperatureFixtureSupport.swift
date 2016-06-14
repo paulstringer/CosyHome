@@ -1,9 +1,9 @@
 import Foundation
 
 enum FixtureTemperatureState: String {
-    case slumber = "Slumber"
-    case comfy = "Comfy"
-    case cosy = "Cosy"
+    case slumber = "Low"
+    case comfy = "Middle"
+    case cosy = "High"
     case undefined = "Undefined"
 }
 

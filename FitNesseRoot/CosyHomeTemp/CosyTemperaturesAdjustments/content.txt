@@ -1,74 +1,74 @@
 !3 Increasing 'Slumber' should adjust the minimum 'Comfy' temperature to 1 degree greater than our 'Slumber' temperature
 
-|Create Temperatures   |
-|state     |temperature|
-|${SLUMBER}|14         |
-|${COMFY}  |18         |
-|${COSY}   |21         |
+|Create Temperatures  |
+|state    |temperature|
+|${LOW}   |14         |
+|${MIDDLE}|18         |
+|${HIGH}  |21         |
 
-|Adjust Temperatures   |
-|state     |temperature|
-|${SLUMBER}|17         |
+|Adjust Temperatures|
+|state  |temperature|
+|${LOW} |17         |
 
-|Query: Check Temperatures             |
-|state     |temperature|minimum|maximum|
-|${SLUMBER}|17         |~=7    |~=17   |
-|${COMFY}  |18         |~=18   |~=20   |
-|${COSY}   |21         |~=19   |~=30   |
+|Query: Check Temperatures            |
+|state    |temperature|minimum|maximum|
+|${LOW}   |17         |~=7    |~=17   |
+|${MIDDLE}|18         |~=18   |~=20   |
+|${HIGH}  |21         |~=19   |~=30   |
 
 !3 Increasing 'Comfy' should adjust the maximum 'Slumber' temperature to 1 degree less than our 'Comfy' temperature
 
-|Create Temperatures   |
-|state     |temperature|
-|${SLUMBER}|14         |
-|${COMFY}  |18         |
-|${COSY}   |21         |
+|Create Temperatures  |
+|state    |temperature|
+|${LOW}   |14         |
+|${MIDDLE}|18         |
+|${HIGH}  |21         |
 
-|Adjust Temperatures |
-|state   |temperature|
-|${COMFY}|20         |
+|Adjust Temperatures  |
+|state    |temperature|
+|${MIDDLE}|20         |
 
-|Query: Check Temperatures             |
-|state     |temperature|minimum|maximum|
-|${SLUMBER}|14         |~=7    |~=19   |
-|${COMFY}  |20         |~=15   |~=20   |
-|${COSY}   |21         |~=21   |~=30   |
+|Query: Check Temperatures            |
+|state    |temperature|minimum|maximum|
+|${LOW}   |14         |~=7    |~=19   |
+|${MIDDLE}|20         |~=15   |~=20   |
+|${HIGH}  |21         |~=21   |~=30   |
 
 !3 Increasing 'Cosy' should adjust the maximum 'Comfy' temperature to 1 degree less than our 'Cosy' temperature
 
-|Create Temperatures   |
-|state     |temperature|
-|${SLUMBER}|14         |
-|${COMFY}  |18         |
-|${COSY}   |21         |
+|Create Temperatures  |
+|state    |temperature|
+|${LOW}   |14         |
+|${MIDDLE}|18         |
+|${HIGH}  |21         |
 
 |Adjust Temperatures|
-|state |temperature |
-|Cosy  |24          |
+|state  |temperature|
+|${HIGH}|24         |
 
-|Query: Check Temperatures          |
-|state  |temperature|minimum|maximum|
-|Slumber|14         |~=7    |~=17   |
-|Comfy  |18         |~=15   |~=23   |
-|Cosy   |24         |~=19   |~=30   |
+|Query: Check Temperatures            |
+|state    |temperature|minimum|maximum|
+|${LOW}   |14         |~=7    |~=17   |
+|${MIDDLE}|18         |~=15   |~=23   |
+|${HIGH}  |24         |~=19   |~=30   |
 
 
 !3 Adjusting all temperatures in turn should change the other temperatures accordingly based on the previous rules
 
-|Create Temperatures|
-|state  |temperature|
-|Slumber|14         |
-|Comfy  |18         |
-|Cosy   |21         |
+|Create Temperatures  |
+|state    |temperature|
+|${LOW}   |14         |
+|${MIDDLE}|18         |
+|${HIGH}  |21         |
 
-|Adjust Temperatures|
-|state  |temperature|
-|Slumber|16         |
-|Cosy   |24         |
-|Comfy  |21         |
+|Adjust Temperatures  |
+|state    |temperature|
+|${LOW}   |16         |
+|${HIGH}  |24         |
+|${MIDDLE}|21         |
 
-|Query: Check Temperatures          |
-|state  |temperature|minimum|maximum|
-|Slumber|16         |~=7    |~=20   |
-|Comfy  |21         |~=17   |~=23   |
-|Cosy   |24         |~=22   |~=30   |
+|Query: Check Temperatures            |
+|state    |temperature|minimum|maximum|
+|${LOW}   |16         |~=7    |~=20   |
+|${MIDDLE}|21         |~=17   |~=23   |
+|${HIGH}  |24         |~=22   |~=30   |
