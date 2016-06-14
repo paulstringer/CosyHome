@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="c6V-KC-kEH">
                                 <rect key="frame" x="160" y="160" width="280" height="280"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Slumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-kt-oZJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Low" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-kt-oZJ">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,12 +41,12 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="koG-0Q-KSh">
                                                 <rect key="frame" x="186" y="0.0" width="94" height="29"/>
                                                 <connections>
-                                                    <action selector="adjustSlumber:" destination="BYZ-38-t0r" eventType="valueChanged" id="kCb-an-Qol"/>
+                                                    <action selector="adjustLow:" destination="BYZ-38-t0r" eventType="valueChanged" id="fqj-pc-6Di"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comfy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W30-Gs-NUW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Middle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W30-Gs-NUW">
                                         <rect key="frame" x="0.0" y="91" width="280" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,12 +67,12 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sLG-S4-XjZ">
                                                 <rect key="frame" x="186" y="0.0" width="94" height="29"/>
                                                 <connections>
-                                                    <action selector="adjustComfy:" destination="BYZ-38-t0r" eventType="valueChanged" id="j4b-q0-bOC"/>
+                                                    <action selector="adjustMiddle:" destination="BYZ-38-t0r" eventType="valueChanged" id="w8H-BP-uub"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cosy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2o-mB-m5F">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="High" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2o-mB-m5F">
                                         <rect key="frame" x="0.0" y="195" width="280" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +93,7 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Zq6-76-5Xj">
                                                 <rect key="frame" x="186" y="0.0" width="94" height="29"/>
                                                 <connections>
-                                                    <action selector="adjustCosy:" destination="BYZ-38-t0r" eventType="valueChanged" id="xsT-9y-2gG"/>
+                                                    <action selector="adjustHigh:" destination="BYZ-38-t0r" eventType="valueChanged" id="cBQ-bj-5iA"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
@@ -123,6 +123,9 @@
                         <outletCollection property="steppers" destination="koG-0Q-KSh" collectionClass="NSMutableArray" id="rHu-fn-4vF"/>
                         <outletCollection property="steppers" destination="sLG-S4-XjZ" collectionClass="NSMutableArray" id="I6y-ru-ZdY"/>
                         <outletCollection property="steppers" destination="Zq6-76-5Xj" collectionClass="NSMutableArray" id="Kfl-si-Woi"/>
+                        <outletCollection property="labels" destination="kL9-kt-oZJ" collectionClass="NSMutableArray" id="rv6-t6-MOU"/>
+                        <outletCollection property="labels" destination="V2o-mB-m5F" collectionClass="NSMutableArray" id="Z82-jl-gXM"/>
+                        <outletCollection property="labels" destination="V2o-mB-m5F" collectionClass="NSMutableArray" id="KDh-ig-NPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

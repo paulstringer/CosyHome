@@ -5,6 +5,7 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     @IBOutlet var temperatureLabels: [UILabel]!
     @IBOutlet var steppers: [UIStepper]!
+    @IBOutlet var labels: [UILabel]!
     
     var input: TemperatureInteractorInput? {
         didSet {}
@@ -48,20 +49,20 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     //MARK: IBActions
     
-    @IBAction func adjustSlumber(sender: UIStepper) {
+    @IBAction func adjustLow(sender: UIStepper) {
         
         input?.request(.adjustLow(temperature: sender.value))
         
     }
     
     
-    @IBAction func adjustComfy(sender: UIStepper) {
+    @IBAction func adjustMiddle(sender: UIStepper) {
         
         input?.request(.adjustMiddle(temperature: sender.value))
         
     }
     
-    @IBAction func adjustCosy(sender: UIStepper) {
+    @IBAction func adjustHigh(sender: UIStepper) {
         
         input?.request(.adjustHigh(temperature: sender.value))
         
@@ -83,8 +84,12 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     private func configureComponentsWithItem(item: TemperatureGroupItem, atIndex index: Int){
         
-        let label = temperatureLabels[index]
-        label.text = item.temp
+        
+        let label = labels[index]
+        label.text = NSLocalizedString(item.name, comment: "")
+        
+        let temperatureLabel = temperatureLabels[index]
+        temperatureLabel.text = item.temp
         
         let stepper = steppers[index]
         stepper.minimumValue = item.minimum
