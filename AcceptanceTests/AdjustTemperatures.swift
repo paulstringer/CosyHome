@@ -17,13 +17,13 @@ class AdjustTemperatures : NSObject, SlimDecisionTable {
 
             switch adjustment {
                 
-            case .slumber:
+            case .low:
                 TemperatureContext.interactor?.request(.adjustSlumber( temperature: temperature ) )
                 
-            case .comfy:
+            case .middle:
                 TemperatureContext.interactor?.request(.adjustComfy( temperature: temperature ) )
                 
-            case .cosy:
+            case .high:
                 TemperatureContext.interactor?.request(.adjustCosy( temperature: temperature ) )
                 
             case .undefined:

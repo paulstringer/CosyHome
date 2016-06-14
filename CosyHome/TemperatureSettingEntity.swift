@@ -3,12 +3,13 @@ import Foundation
 
 struct TemperatureSettingEntity {
     
-    private let MaxTemperature = 30.0
-    private let MinTemperature = 7.0
+    static private let MaxTemperature = 30.0
+    static private let MinTemperature = 7.0
     
     var previous: Double?
     var next: Double?
     var _temperature: Double
+    
     
     var temperature: Double {
         
@@ -24,7 +25,7 @@ struct TemperatureSettingEntity {
                 temperature = maximumTemperature - 1
             }
             
-            return max(MinTemperature, min(temperature, MaxTemperature))
+            return max(TemperatureSettingEntity.MinTemperature, min(temperature, TemperatureSettingEntity.MaxTemperature))
             
         }
         
@@ -35,7 +36,7 @@ struct TemperatureSettingEntity {
         get {
             
             guard let next = next else {
-                return MaxTemperature
+                return TemperatureSettingEntity.MaxTemperature
             }
             
             return next - 1.0
@@ -47,14 +48,14 @@ struct TemperatureSettingEntity {
         
         get {
             guard let previous = previous else {
-                return MinTemperature
+                return TemperatureSettingEntity.MinTemperature
             }
             
             return previous + 1.0
         }
     }
     
-    init(temperature: Double = 0.0, previous: Double? = nil, next: Double? = nil) {
+    init(temperature: Double = 0.0,  previous: Double? = nil, next: Double? = nil) {
         self.previous = previous
         self.next = next
         self._temperature = temperature
@@ -67,11 +68,11 @@ struct TemperatureSettingEntity {
     
     //MARK: Factory Method
     
-    static func entitiesWithSlumber(slumber: Double, comfy: Double, cosy: Double ) -> (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity, cosy: TemperatureSettingEntity) {
+    static func entitiesWithTemperaturesLow(low: Double, middle: Double, high: Double ) -> (low: TemperatureSettingEntity, middle: TemperatureSettingEntity, high: TemperatureSettingEntity) {
         
-        let slumberSetting = TemperatureSettingEntity(temperature: slumber, next: comfy)
-        let comfySetting = TemperatureSettingEntity(previous: slumber, temperature: comfy, next: cosy)
-        let cosySetting = TemperatureSettingEntity(previous: comfy, temperature: cosy)
+        let slumberSetting = TemperatureSettingEntity(temperature: low,  next: middle )
+        let comfySetting = TemperatureSettingEntity(previous: low, temperature: middle, next: high)
+        let cosySetting = TemperatureSettingEntity(previous: middle, temperature: high)
         
         return (slumberSetting, comfySetting, cosySetting)
         

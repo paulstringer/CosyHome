@@ -7,9 +7,9 @@ struct TemperatureContext: TemperatureGroupView {
     //MARK: Static Context Pesistence
     
     static var interactor: TemperatureInteractor?
-    static var slumber: TemperatureGroupItem?
-    static var comfy: TemperatureGroupItem?
-    static var cosy: TemperatureGroupItem?
+    static var low: TemperatureGroupItem?
+    static var middle: TemperatureGroupItem?
+    static var high: TemperatureGroupItem?
     
     //MARK: Context Init
     
@@ -34,37 +34,37 @@ struct TemperatureContext: TemperatureGroupView {
     
     //MARK: Temperature Settings View
     
-    var slumber: TemperatureGroupItem? {
+    var low: TemperatureGroupItem? {
         
-        set {  TemperatureContext.slumber = newValue }
+        set {  TemperatureContext.low = newValue }
         
-        get { return TemperatureContext.slumber }
-        
-    }
-    
-    var comfy: TemperatureGroupItem? {
-        
-        set { TemperatureContext.comfy = newValue }
-        
-        get { return TemperatureContext.comfy }
+        get { return TemperatureContext.low }
         
     }
     
-    var cosy: TemperatureGroupItem? {
+    var middle: TemperatureGroupItem? {
         
-        set { TemperatureContext.cosy = newValue }
+        set { TemperatureContext.middle = newValue }
         
-        get { return TemperatureContext.cosy }
+        get { return TemperatureContext.middle }
+        
+    }
+    
+    var high: TemperatureGroupItem? {
+        
+        set { TemperatureContext.high = newValue }
+        
+        get { return TemperatureContext.high }
     }
     
     static func stateNameForItem(item: TemperatureGroupItem) -> String {
         
-        if item == slumber {
-            return FixtureTemperatureState.slumber.rawValue
-        } else if item == comfy {
-            return FixtureTemperatureState.comfy.rawValue
-        } else if item == cosy {
-            return FixtureTemperatureState.cosy.rawValue
+        if item == low {
+            return FixtureTemperatureState.low.rawValue
+        } else if item == middle {
+            return FixtureTemperatureState.middle.rawValue
+        } else if item == high {
+            return FixtureTemperatureState.high.rawValue
         } else {
             return FixtureTemperatureState.undefined.rawValue
         }

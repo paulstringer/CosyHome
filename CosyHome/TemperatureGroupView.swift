@@ -1,12 +1,13 @@
 import Foundation
 
 protocol TemperatureGroupView {
-    var slumber: TemperatureGroupItem? { get set }
-    var comfy: TemperatureGroupItem? { get set }
-    var cosy: TemperatureGroupItem? { get set }
+    var low: TemperatureGroupItem? { get set }
+    var middle: TemperatureGroupItem? { get set }
+    var high: TemperatureGroupItem? { get set }
 }
 
 struct TemperatureGroupItem: Equatable {
+    let name: String
     let temp: String
     let minimum: Double
     let maximum: Double

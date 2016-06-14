@@ -1,11 +1,10 @@
 import Foundation
 
 struct TemperatureGroupModel {
-    var slumber: Double
-    var comfy: Double
-    var cosy: Double
+    var low: Double
+    var middle: Double
+    var high: Double
 }
-
 
 enum TemperatureGroupSettingType {
     case Slumber
@@ -17,23 +16,23 @@ struct TemperatureGroupEntity{
     
     private var model: TemperatureGroupModel
     
-    var settings: (slumber: TemperatureSettingEntity, comfy: TemperatureSettingEntity, cosy: TemperatureSettingEntity) {
+    var settings: (low: TemperatureSettingEntity, middle: TemperatureSettingEntity, high: TemperatureSettingEntity) {
         
         get {
         
-            return TemperatureSettingEntity.entitiesWithSlumber(model.slumber, comfy: model.comfy, cosy: model.cosy)
+            return TemperatureSettingEntity.entitiesWithTemperaturesLow(model.low, middle: model.middle, high: model.high)
         }
     }
     
     //MARK: Initialisation
     
     init() {
-        self.init(slumber: 14, comfy: 19, cosy: 21)
+        self.init(low: 14, middle: 19, high: 21)
     }
     
-    init(slumber: Double, comfy: Double, cosy: Double) {
+    init(low: Double, middle: Double, high: Double) {
         
-        self.model = TemperatureGroupModel(slumber: slumber, comfy: comfy, cosy: cosy)
+        self.model = TemperatureGroupModel(low: low, middle: middle, high: high)
         
     }
     
@@ -51,15 +50,15 @@ struct TemperatureGroupEntity{
             
         case .Slumber:
             
-            model.slumber = temperature
+            model.low = temperature
             
         case .Comfy:
             
-            model.comfy = temperature
+            model.middle = temperature
             
         case .Cosy:
             
-            model.cosy = temperature
+            model.high = temperature
         }
         
     }

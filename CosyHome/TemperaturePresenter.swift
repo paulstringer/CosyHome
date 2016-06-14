@@ -16,11 +16,11 @@ class TemperaturePresenter: TemperatureInteractorOutput {
             
             if let temperatures = temperatureGroup?.settings {
                 
-                view.slumber = itemForTemperature(temperatures.slumber)
+                view.low = itemForTemperature(temperatures.low, name: "SLUMBER")
                 
-                view.comfy = itemForTemperature(temperatures.comfy)
+                view.middle = itemForTemperature(temperatures.middle, name:  "COMFY")
                 
-                view.cosy = itemForTemperature(temperatures.cosy)
+                view.high = itemForTemperature(temperatures.high, name: "COSY")
 
             }
 
@@ -31,11 +31,11 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     //MARK: Private
     
-    private func itemForTemperature(setting: TemperatureSettingEntity) -> TemperatureGroupItem {
+    private func itemForTemperature(setting: TemperatureSettingEntity, name: String) -> TemperatureGroupItem {
         
         let formattedTemperature = formattedStrings(setting)
         
-        return TemperatureGroupItem(temp: formattedTemperature, minimum: setting.minimum, maximum: setting.maximum)
+        return TemperatureGroupItem(name: name, temp: formattedTemperature, minimum: setting.minimum, maximum: setting.maximum)
         
     }
     

@@ -51,9 +51,9 @@ class TemperatureInteractorTests: XCTestCase {
             XCTFail(); return
         }
         
-        XCTAssertEqual(temperatures.settings.slumber.temperature, gateway.group.settings.slumber.temperature)
-        XCTAssertEqual(temperatures.settings.slumber.minimum, gateway.group.settings.slumber.minimum)
-        XCTAssertEqual(temperatures.settings.slumber.maximum, gateway.group.settings.slumber.maximum)
+        XCTAssertEqual(temperatures.settings.low.temperature, gateway.group.settings.low.temperature)
+        XCTAssertEqual(temperatures.settings.low.minimum, gateway.group.settings.low.minimum)
+        XCTAssertEqual(temperatures.settings.low.maximum, gateway.group.settings.low.maximum)
         
     }
     
@@ -61,10 +61,9 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(12.0)
         
-        interactor.request(.adjustSlumber(temperature: 0.0))
-//        interactor.adjustSlumber(0.0)
+        interactor.request(.adjustLow(temperature: 0.0))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 7.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.low.temperature, 7.0)
         
     }
     
@@ -72,10 +71,9 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.request(.adjustSlumber(temperature: 12))
-//        interactor.adjustSlumber(12)
+        interactor.request(.adjustLow(temperature: 12))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 12.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.low.temperature, 12.0)
         
     }
     
@@ -83,9 +81,9 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.request(.adjustComfy(temperature: 12))
+        interactor.request(.adjustMiddle(temperature: 12))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 12.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.middle.temperature, 12.0)
         
     }
     
@@ -93,9 +91,9 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures()
         
-        interactor.request(.adjustCosy(temperature: 24))
+        interactor.request(.adjustHigh(temperature: 24))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.cosy.temperature, 24.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.high.temperature, 24.0)
         
     }
     
@@ -103,55 +101,55 @@ class TemperatureInteractorTests: XCTestCase {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.request(.adjustSlumber(temperature: 12))
+        interactor.request(.adjustLow(temperature: 12))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.comfy.minimum, 13.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.middle.minimum, 13.0)
     }
     
     func testAdjustingComfyAdjustsSlumberMaximum() {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.request(.adjustComfy(temperature: 12))
+        interactor.request(.adjustMiddle(temperature: 12))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.slumber.maximum, 11.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.low.maximum, 11.0)
     }
     
     func testAdjustingComfyAdjustsCosyMinimum() {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.request(.adjustComfy(temperature: 12))
+        interactor.request(.adjustMiddle(temperature: 12))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.cosy.minimum, 13.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.high.minimum, 13.0)
     }
     
     func testAdjustingCosyAdjustsComfyMaximum() {
         
         startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
         
-        interactor.request(.adjustCosy(temperature: 24))
+        interactor.request(.adjustHigh(temperature: 24))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.comfy.maximum, 23.0)
+        XCTAssertEqual(output.temperatureGroup?.settings.middle.maximum, 23.0)
     }
     
     func testAdjustingTwoSettings() {
         
         startWithGatewayTemperatures(14, comfy: 19, cosy: 21)
         
-        interactor.request(.adjustSlumber(temperature: 16))
-        interactor.request(.adjustCosy(temperature: 24))
+        interactor.request(.adjustLow(temperature: 16))
+        interactor.request(.adjustHigh(temperature: 24))
         
-        XCTAssertEqual(output.temperatureGroup?.settings.slumber.temperature, 16)
-        XCTAssertEqual(output.temperatureGroup?.settings.comfy.temperature, 19)
-        XCTAssertEqual(output.temperatureGroup?.settings.cosy.temperature, 24)
+        XCTAssertEqual(output.temperatureGroup?.settings.low.temperature, 16)
+        XCTAssertEqual(output.temperatureGroup?.settings.middle.temperature, 19)
+        XCTAssertEqual(output.temperatureGroup?.settings.high.temperature, 24)
     }
     
     //MARK: Helpers
     
     func startWithGatewayTemperatures(slumber: Double = 7, comfy: Double = 18, cosy: Double = 21) {
         
-        let temperatures = TemperatureGroupModel(slumber: slumber,  comfy: comfy, cosy: cosy)
+        let temperatures = TemperatureGroupModel(low: slumber,  middle: comfy, high: cosy)
         gateway.group = TemperatureGroupEntity(temperatures: temperatures)
         
         interactor.request(.load)

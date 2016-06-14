@@ -34,9 +34,9 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
     
     lazy private var temperatures: TemperatureContextInput = {
         
-        let slumber = self.temperatureValues[.slumber] ?? 0
-        let comfy = self.temperatureValues[.comfy] ?? 0
-        let cosy = self.temperatureValues[.cosy] ?? 0
+        let slumber = self.temperatureValues[.low] ?? 0
+        let comfy = self.temperatureValues[.middle] ?? 0
+        let cosy = self.temperatureValues[.high] ?? 0
         
         return (slumber, comfy, cosy)
         

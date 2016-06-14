@@ -20,29 +20,29 @@ class ViewController: UIViewController, TemperatureGroupView {
 
     //MARK: Temperature Group View
     
-    var slumber: TemperatureGroupItem? {
+    var low: TemperatureGroupItem? {
         
         didSet {
             
-            configureTemperatureGroupItemUI(slumber)
+            configureTemperatureGroupItemUI(low)
             
         }
     }
     
-    var comfy: TemperatureGroupItem? {
+    var middle: TemperatureGroupItem? {
         
         didSet {
             
-            configureTemperatureGroupItemUI(comfy)
+            configureTemperatureGroupItemUI(middle)
             
         }
     }
     
-    var cosy: TemperatureGroupItem? {
+    var high: TemperatureGroupItem? {
         
         didSet {
             
-            configureTemperatureGroupItemUI(cosy)
+            configureTemperatureGroupItemUI(high)
         }
     }
     
@@ -50,20 +50,20 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     @IBAction func adjustSlumber(sender: UIStepper) {
         
-        input?.request(.adjustSlumber(temperature: sender.value))
+        input?.request(.adjustLow(temperature: sender.value))
         
     }
     
     
     @IBAction func adjustComfy(sender: UIStepper) {
         
-        input?.request(.adjustComfy(temperature: sender.value))
+        input?.request(.adjustMiddle(temperature: sender.value))
         
     }
     
     @IBAction func adjustCosy(sender: UIStepper) {
         
-        input?.request(.adjustCosy(temperature: sender.value))
+        input?.request(.adjustHigh(temperature: sender.value))
         
     }
     
@@ -71,7 +71,7 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     private func configureTemperatureGroupItemUI(item: TemperatureGroupItem?) {
         
-        guard let item = item, let index = [slumber, comfy, cosy].indexOf({ (x) -> Bool in
+        guard let item = item, let index = [low, middle, high].indexOf({ (x) -> Bool in
             return x == item
         }) else {
             return

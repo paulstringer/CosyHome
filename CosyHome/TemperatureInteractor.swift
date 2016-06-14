@@ -28,9 +28,9 @@ enum TemperatureInteractorOutputMessage {
 
 enum TemperatureSettingsInputRequest {
     case load
-    case adjustSlumber(temperature: Double)
-    case adjustComfy(temperature: Double)
-    case adjustCosy(temperature: Double)
+    case adjustLow(temperature: Double)
+    case adjustMiddle(temperature: Double)
+    case adjustHigh(temperature: Double)
 }
 
 //MARK: Interactor
@@ -53,11 +53,11 @@ struct TemperatureInteractor: TemperatureInteractorInput {
         switch request {
         case .load:
             loadData()
-        case .adjustSlumber(let temperature):
+        case .adjustLow(let temperature):
             adjustTemperatureWithType(.Slumber, to: temperature)
-        case .adjustComfy(let temperature):
+        case .adjustMiddle(let temperature):
             adjustTemperatureWithType(.Comfy, to: temperature)
-        case .adjustCosy(let temperature):
+        case .adjustHigh(let temperature):
             adjustTemperatureWithType(.Cosy, to: temperature)
         }
         
@@ -79,24 +79,6 @@ struct TemperatureInteractor: TemperatureInteractorInput {
         }
         
     }
-    //MARK: Adjustments
-    
-//    mutating func adjustSlumber(temperature: Double) {
-//        
-//        adjustTemperatureWithType(.Slumber, to: temperature)
-//        
-//    }
-//    
-//    mutating func adjustCosy(temperature: Double) {
-//        
-//        adjustTemperatureWithType(.Cosy, to: temperature)
-//    }
-//    
-//    mutating func adjustComfy(temperature: Double) {
-//        
-//        adjustTemperatureWithType(.Comfy, to: temperature)
-//        
-//    }
     
     private mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
     

@@ -82,7 +82,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesCountAndValues() {
         
-        let (slumber, comfy, cosy) = TemperatureSettingEntity.entitiesWithSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) = TemperatureSettingEntity.entitiesWithTemperaturesLow(12, middle: 18, high: 21)
         
         XCTAssertEqual(slumber.temperature, 12.0)
         XCTAssertEqual(comfy.temperature, 18.0)
@@ -91,7 +91,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesMinimums() {
         
-        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesWithSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesWithTemperaturesLow(12, middle: 18, high: 21)
         
         XCTAssertEqual(slumber.minimum, 7)
         XCTAssertEqual(comfy.minimum, 13)
@@ -100,7 +100,7 @@ class TemperatureSettingEntityTests: XCTestCase {
     
     func testEntitiesWithTemperaturesMaximum() {
         
-        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesWithSlumber(12, comfy: 18, cosy: 21)
+        let (slumber, comfy, cosy) =  TemperatureSettingEntity.entitiesWithTemperaturesLow(12, middle: 18, high: 21)
         XCTAssertEqual(slumber.maximum, 17)
         XCTAssertEqual(comfy.maximum, 20)
         XCTAssertEqual(cosy.maximum, 30)

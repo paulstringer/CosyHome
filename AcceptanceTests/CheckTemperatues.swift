@@ -6,7 +6,7 @@ class CheckTemperatures : NSObject, SlimQueryTable {
 
     func query() -> [AnyObject]! {
        
-        let query = [TemperatureContext.slumber, TemperatureContext.comfy, TemperatureContext.cosy].map { (item) -> [String:String] in
+        let query = [TemperatureContext.low, TemperatureContext.middle, TemperatureContext.high].map { (item) -> [String:String] in
             
             return queryRowWithTemperatureItem(item)
             
@@ -23,7 +23,7 @@ class CheckTemperatures : NSObject, SlimQueryTable {
             
             let state = TemperatureContext.stateNameForItem(item)
             
-            return ["state":state, "minimum":String(item.minimum), "temperature": item.temp, "maximum": String(item.maximum)]
+            return ["state":state, "minimum":String(item.minimum), "temperature": item.temp, "maximum": String(item.maximum), "name" : item.name]
             
         } else {
             
