@@ -1,0 +1,13 @@
+!1 Cosy Home Settings are labelled with friendly names
+
+|Create Temperatures  |
+|state    |temperature|
+|${LOW}   |14         |
+|${MIDDLE}|18         |
+|${HIGH}  |21         |
+
+|Query: Check Temperatures|
+|state        |name       |
+|${LOW}       |SLUMBER    |
+|${MIDDLE}    |COMFY      |
+|${HIGH}      |COSY       |

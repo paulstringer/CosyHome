@@ -11,14 +11,13 @@ enum TemperatureGatewayResponse {
     case error
 }
 
-//MARK: Interactor Interfaces
-
+//MARK: Interactor Interfaces1
 protocol TemperatureInteractorInput {
     mutating func request(request: TemperatureSettingsInputRequest)
 }
 
 protocol TemperatureInteractorOutput {
-    var temperatureGroup: TemperatureGroupEntity? { get set }
+    var temperatureGroup: TemperatureGroupResponse? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
 }
 
