@@ -10,7 +10,19 @@ The aim of this project is to illustrate an implementation of Clean Architecture
 
 In this example because of a 'clean architecture' we've been able to implement an alternative approach to testing the apps external behaviour in a way that removes the need for [complex UI based testing approaches](http://stringerstheory.net/acceptance-testing-with-ios/). This results in more reliable and faster tests of your applications business logic.
 
-## Development using ATTD
+Benefits of Clean Architecture also of course include
+
+- Maintainability
+- Enabling concurrent development
+- Decoupling from the System, UI, etc.
+- High reuseability of components
+- Traceability, a place for everything, everything in it's place
+- Extreme testability
+
+![Generic Clean Architecture Implementation in iOS](iOS-Clean-Architecture.png)
+*An example sequence flow of a typical iOS app implemented with Clean Architecture*
+
+## Developed with ATTD
 
 Initial analysis has been performed through the creation of a set of 'acceptance criteria' derived from user stories which have been implemented in the form of truth tables in [Fitnesse](http://fitnesse.org) (An integrated acceptance testing framework and Wiki). These tables provide a 'ubiquitous language' that can be understood by the whole team from Business Analyst to QA.
 
@@ -19,9 +31,6 @@ To simplify and automate acceptance testing of the application with Fitnesse the
 This approach affords the ability to insert easily test data, explore all areas of business logic thorougly through accessing the APIs of the system. Finally we have the ability to verify the systems behaviour through responses sent directly back by the sytem under test, avoiding the slow and fragile approach of having to extract these through a UI based testing tool such as XCUITest.
 
 Once development of the 'Interactor' and 'Presenter' layers of the architecture have been completed (driven by the acceptance tests) a UI is then added at the View Controller layer of our app. This final step becomes a simple wiring of view models to the view and the forwarding of IBActions to an Interactor (or use case). It is now trivial if we wanted to, to also add additional UI's for say tvOS, macOS or watchOS apps.
-
-![Generic Clean Architecture Implementation in iOS](iOS-Clean-Architecture.png)
-*An example sequence flow of a typical iOS app implemented with Clean Architecture*
 
 ## Getting Started
 
