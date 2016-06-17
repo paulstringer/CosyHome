@@ -17,7 +17,7 @@ protocol TemperatureInteractorInput {
 }
 
 protocol TemperatureInteractorOutput {
-    var temperatureGroup: TemperatureGroupResponse? { get set }
+    var temperatureGroup: TemperatureGroupEntity? { get set }
     var message: TemperatureInteractorOutputMessage?{ get set }
 }
 

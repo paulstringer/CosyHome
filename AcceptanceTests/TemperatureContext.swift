@@ -22,7 +22,7 @@ struct TemperatureContext: TemperatureGroupView {
     
     private func createTemperatureInteractor(temperatures: TemperatureContextInput) -> TemperatureInteractor {
     
-        let group = TemperatureGroupModel(slumber: temperatures.slumber, comfy: temperatures.comfy, cosy: temperatures.cosy)
+        let group = TemperatureGroupModel(low: temperatures.slumber, middle: temperatures.comfy, high: temperatures.cosy)
         
         let gateway = TemperatureGatewaySimple(temperatures: group)
     
