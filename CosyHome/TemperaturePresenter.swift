@@ -31,7 +31,7 @@ class TemperaturePresenter: TemperatureInteractorOutput {
     
     //MARK: Private
     
-    private func itemForTemperature(setting: TemperatureSettingEntity, name: String) -> TemperatureGroupItem {
+    fileprivate func itemForTemperature(_ setting: TemperatureSettingEntity, name: String) -> TemperatureGroupItem {
         
         let formattedTemperature = formattedStrings(setting)
         
@@ -39,9 +39,9 @@ class TemperaturePresenter: TemperatureInteractorOutput {
         
     }
     
-    private func formattedStrings(setting: TemperatureSettingEntity) -> String {
-        let formatter = NSNumberFormatter()
+    fileprivate func formattedStrings(_ setting: TemperatureSettingEntity) -> String {
+        let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
-        return formatter.stringFromNumber(NSNumber(double: setting.temperature))!
+        return formatter.string(from: NSNumber(value: setting.temperature as Double))!
     }
 }

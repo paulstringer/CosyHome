@@ -3,8 +3,8 @@ import Foundation
 
 struct TemperatureSettingEntity {
     
-    static private let MaxTemperature = 30.0
-    static private let MinTemperature = 7.0
+    static fileprivate let MaxTemperature = 30.0
+    static fileprivate let MinTemperature = 7.0
     
     var previous: Double?
     var next: Double?
@@ -17,11 +17,11 @@ struct TemperatureSettingEntity {
         
             var temperature = _temperature
             
-            if let minimumTemperature = previous where temperature <= minimumTemperature {
+            if let minimumTemperature = previous, temperature <= minimumTemperature {
                 temperature = minimumTemperature + 1
             }
             
-            if let maximumTemperature = next where temperature >= maximumTemperature {
+            if let maximumTemperature = next, temperature >= maximumTemperature {
                 temperature = maximumTemperature - 1
             }
             
@@ -62,17 +62,17 @@ struct TemperatureSettingEntity {
     }
     
     
-    mutating func adjustTemperature(temperature: Double) {
+    mutating func adjustTemperature(_ temperature: Double) {
         self._temperature = temperature
     }
     
     //MARK: Factory Method
     
-    static func entitiesWithTemperaturesLow(low: Double, middle: Double, high: Double ) -> (low: TemperatureSettingEntity, middle: TemperatureSettingEntity, high: TemperatureSettingEntity) {
+    static func entitiesWithTemperaturesLow(_ low: Double, middle: Double, high: Double ) -> (low: TemperatureSettingEntity, middle: TemperatureSettingEntity, high: TemperatureSettingEntity) {
         
         let slumberSetting = TemperatureSettingEntity(temperature: low,  next: middle )
-        let comfySetting = TemperatureSettingEntity(previous: low, temperature: middle, next: high)
-        let cosySetting = TemperatureSettingEntity(previous: middle, temperature: high)
+        let comfySetting = TemperatureSettingEntity(temperature: middle, previous: low, next: high)
+        let cosySetting = TemperatureSettingEntity(temperature: high, previous: middle)
         
         return (slumberSetting, comfySetting, cosySetting)
         

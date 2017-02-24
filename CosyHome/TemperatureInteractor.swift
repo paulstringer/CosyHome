@@ -13,7 +13,7 @@ enum TemperatureGatewayResponse {
 
 //MARK: Interactor Interfaces1
 protocol TemperatureInteractorInput {
-    mutating func request(request: TemperatureSettingsInputRequest)
+    mutating func request(_ request: TemperatureSettingsInputRequest)
 }
 
 protocol TemperatureInteractorOutput {
@@ -22,7 +22,7 @@ protocol TemperatureInteractorOutput {
 }
 
 enum TemperatureInteractorOutputMessage {
-    case Error_Fetching_Temperatures
+    case error_Fetching_Temperatures
 }
 
 enum TemperatureSettingsInputRequest {
@@ -47,22 +47,22 @@ struct TemperatureInteractor: TemperatureInteractorInput {
     
     //MARK: Requests
     
-    mutating func request(request: TemperatureSettingsInputRequest) {
+    mutating func request(_ request: TemperatureSettingsInputRequest) {
         
         switch request {
         case .load:
             loadData()
         case .adjustLow(let temperature):
-            adjustTemperatureWithType(.Slumber, to: temperature)
+            adjustTemperatureWithType(.slumber, to: temperature)
         case .adjustMiddle(let temperature):
-            adjustTemperatureWithType(.Comfy, to: temperature)
+            adjustTemperatureWithType(.comfy, to: temperature)
         case .adjustHigh(let temperature):
-            adjustTemperatureWithType(.Cosy, to: temperature)
+            adjustTemperatureWithType(.cosy, to: temperature)
         }
         
     }
     
-    mutating private func loadData() {
+    mutating fileprivate func loadData() {
         
         switch gateway.fetchGroup() {
             
@@ -74,12 +74,12 @@ struct TemperatureInteractor: TemperatureInteractorInput {
             
         case .error:
             
-            output.message = .Error_Fetching_Temperatures
+            output.message = .error_Fetching_Temperatures
         }
         
     }
     
-    private mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
+    fileprivate mutating func adjustTemperatureWithType(_ type: TemperatureGroupSettingType, to temperature: Double) {
     
         temperatureGroup?.adjustTemperatureWithType(type, to: temperature)
         

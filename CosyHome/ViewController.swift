@@ -14,7 +14,7 @@ class ViewController: UIViewController, TemperatureGroupView {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         input?.request(.load)
     }
 
@@ -48,20 +48,20 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     //MARK: IBActions
     
-    @IBAction func adjustLow(sender: UIStepper) {
+    @IBAction func adjustLow(_ sender: UIStepper) {
         
         input?.request(.adjustLow(temperature: sender.value))
         
     }
     
     
-    @IBAction func adjustMiddle(sender: UIStepper) {
+    @IBAction func adjustMiddle(_ sender: UIStepper) {
         
         input?.request(.adjustMiddle(temperature: sender.value))
         
     }
     
-    @IBAction func adjustHigh(sender: UIStepper) {
+    @IBAction func adjustHigh(_ sender: UIStepper) {
         
         input?.request(.adjustHigh(temperature: sender.value))
         
@@ -69,9 +69,9 @@ class ViewController: UIViewController, TemperatureGroupView {
     
     //MARK: Private
     
-    private func configureTemperatureGroupItemUI(item: TemperatureGroupItem?) {
+    fileprivate func configureTemperatureGroupItemUI(_ item: TemperatureGroupItem?) {
         
-        guard let item = item, let index = [low, middle, high].indexOf({ (x) -> Bool in
+        guard let item = item, let index = [low, middle, high].index(where: { (x) -> Bool in
             return x == item
         }) else {
             return
@@ -81,7 +81,7 @@ class ViewController: UIViewController, TemperatureGroupView {
         
     }
     
-    private func configureComponentsWithItem(item: TemperatureGroupItem, atIndex index: Int){
+    fileprivate func configureComponentsWithItem(_ item: TemperatureGroupItem, atIndex index: Int){
         
         
         let label = labels[index]

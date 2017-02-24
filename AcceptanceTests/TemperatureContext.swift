@@ -20,7 +20,7 @@ struct TemperatureContext: TemperatureGroupView {
         TemperatureContext.interactor?.request(.load)
     }
     
-    private func createTemperatureInteractor(temperatures: TemperatureContextInput) -> TemperatureInteractor {
+    fileprivate func createTemperatureInteractor(_ temperatures: TemperatureContextInput) -> TemperatureInteractor {
     
         let group = TemperatureGroupModel(low: temperatures.slumber, middle: temperatures.comfy, high: temperatures.cosy)
         
@@ -57,7 +57,7 @@ struct TemperatureContext: TemperatureGroupView {
         get { return TemperatureContext.high }
     }
     
-    static func stateNameForItem(item: TemperatureGroupItem) -> String {
+    static func stateNameForItem(_ item: TemperatureGroupItem) -> String {
         
         if item == low {
             return FixtureTemperatureState.low.rawValue

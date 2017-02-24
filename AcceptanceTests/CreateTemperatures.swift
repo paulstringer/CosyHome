@@ -12,7 +12,7 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
     
     // Fixture Input Storage
     
-    private var temperatureValues = [FixtureTemperatureState:Double]()
+    fileprivate var temperatureValues = [FixtureTemperatureState:Double]()
 
     // Decision Table
     
@@ -26,13 +26,13 @@ class CreateTemperatures : NSObject, SlimDecisionTable {
         
     }
     
-    func endTable() {
+    func end() {
         
         _ = TemperatureContext(temperatures: temperatures)
         
     }
     
-    lazy private var temperatures: TemperatureContextInput = {
+    lazy fileprivate var temperatures: TemperatureContextInput = {
         
         let slumber = self.temperatureValues[.low] ?? 0
         let comfy = self.temperatureValues[.middle] ?? 0

@@ -7,14 +7,14 @@ struct TemperatureGroupModel {
 }
 
 enum TemperatureGroupSettingType {
-    case Slumber
-    case Comfy
-    case Cosy
+    case slumber
+    case comfy
+    case cosy
 }
 
 struct TemperatureGroupEntity{
     
-    private var model: TemperatureGroupModel
+    fileprivate var model: TemperatureGroupModel
     
     var settings: (low: TemperatureSettingEntity, middle: TemperatureSettingEntity, high: TemperatureSettingEntity) {
         
@@ -44,19 +44,19 @@ struct TemperatureGroupEntity{
     
     //MARK: Business Logic 
     
-    mutating func adjustTemperatureWithType(type: TemperatureGroupSettingType, to temperature: Double) {
+    mutating func adjustTemperatureWithType(_ type: TemperatureGroupSettingType, to temperature: Double) {
         
         switch type {
             
-        case .Slumber:
+        case .slumber:
             
             model.low = temperature
             
-        case .Comfy:
+        case .comfy:
             
             model.middle = temperature
             
-        case .Cosy:
+        case .cosy:
             
             model.high = temperature
         }

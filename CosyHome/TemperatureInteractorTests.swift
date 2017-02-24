@@ -27,7 +27,7 @@ class TemperatureInteractorTests: XCTestCase {
             XCTFail(); return
         }
         
-        XCTAssertEqual(message, TemperatureInteractorOutputMessage.Error_Fetching_Temperatures)
+        XCTAssertEqual(message, TemperatureInteractorOutputMessage.error_Fetching_Temperatures)
 
     }
     
@@ -45,7 +45,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testConvertingEntities() {
         
-        startWithGatewayTemperatures(12, comfy: 18, cosy: 21)
+        startWithGatewayTemperatures(slumber: 12, comfy: 18, cosy: 21)
         
         guard let temperatures = output.temperatureGroup else {
             XCTFail(); return
@@ -59,7 +59,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testUpdatingSlumberLowerThanSevenDegrees() {
         
-        startWithGatewayTemperatures(12.0)
+        startWithGatewayTemperatures(slumber: 12.0)
         
         interactor.request(.adjustLow(temperature: 0.0))
         
@@ -99,7 +99,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testAdjustingSlumberAdjustsComfyMinimum() {
         
-        startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
+        startWithGatewayTemperatures(slumber: 10, comfy: 16, cosy: 21)
         
         interactor.request(.adjustLow(temperature: 12))
         
@@ -108,7 +108,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testAdjustingComfyAdjustsSlumberMaximum() {
         
-        startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
+        startWithGatewayTemperatures(slumber: 10, comfy: 16, cosy: 21)
         
         interactor.request(.adjustMiddle(temperature: 12))
         
@@ -117,7 +117,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testAdjustingComfyAdjustsCosyMinimum() {
         
-        startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
+        startWithGatewayTemperatures(slumber: 10, comfy: 16, cosy: 21)
         
         interactor.request(.adjustMiddle(temperature: 12))
         
@@ -126,7 +126,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testAdjustingCosyAdjustsComfyMaximum() {
         
-        startWithGatewayTemperatures(10, comfy: 16, cosy: 21)
+        startWithGatewayTemperatures(slumber: 10, comfy: 16, cosy: 21)
         
         interactor.request(.adjustHigh(temperature: 24))
         
@@ -135,7 +135,7 @@ class TemperatureInteractorTests: XCTestCase {
     
     func testAdjustingTwoSettings() {
         
-        startWithGatewayTemperatures(14, comfy: 19, cosy: 21)
+        startWithGatewayTemperatures(slumber: 14, comfy: 19, cosy: 21)
         
         interactor.request(.adjustLow(temperature: 16))
         interactor.request(.adjustHigh(temperature: 24))
