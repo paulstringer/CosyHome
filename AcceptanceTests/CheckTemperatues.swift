@@ -4,7 +4,7 @@ import Foundation
 
 class CheckTemperatures : NSObject, SlimQueryTable {
 
-    func query() -> [AnyObject]! {
+    public func query() -> [Any]! {
        
         let query = [TemperatureContext.low, TemperatureContext.middle, TemperatureContext.high].map { (item) -> [String:String] in
             
